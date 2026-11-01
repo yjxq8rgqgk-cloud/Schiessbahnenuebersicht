@@ -1,0 +1,1260 @@
+<meta charset="utf-8">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Schießbahnen Mitteleuropa</title>
+<style>
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/oswald/v57/TK3_WkUHHAIjg75cFRf3bXL8LICs1_FvgUE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/oswald/v57/TK3_WkUHHAIjg75cFRf3bXL8LICs18NvgUE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/oswald/v57/TK3_WkUHHAIjg75cFRf3bXL8LICs1y9ogUE.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourcesans3/v20/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Ky461EN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourcesans3/v20/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8KyK61EN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourcesans3/v20/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Kxm7FEN.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourcesans3/v20/nwpBtKy2OAdR1K-IwhWudF-R9QMylBJAV3Bo8Kxf7FEN.ttf) format('truetype');
+}
+
+</style>
+<style>
+  /* Layout: selbstgezeichnete SVG-Karte links, filterbare Standortliste rechts; Signage-Typo (Oswald) auf ruhigem Jagdgrün-Neutral. */
+  :root{
+    --bg:#f3f5f0; --surface:#ffffff; --panel:#ebeee5; --panel-2:#e2e6da;
+    --fg:#1d231c; --muted:#5b655a; --border:#d5dbca; --border-strong:#c2cab4;
+    --accent:#2f6b43; --accent-fg:#ffffff; --accent-soft:#dcebe0;
+    --water:#eceef0; --land:#dfe2df; --land-stroke:#b6bcb7; --land-dim:#e7e9e7; --road:#9aa39b; --border-line:#cf2b2b;
+    --clay:#d26a3c; --long:#3f78c9; --rifle:#4f9d6b; --pistol:#d39a24; --ipsc:#8a5cd0;
+    --star:#e0a92e; --loc:#c8465e;
+    --shadow:0 1px 2px rgba(31,40,30,.08),0 8px 24px rgba(31,40,30,.08);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#10130d; --surface:#181d14; --panel:#1e241a; --panel-2:#252c20;
+    --fg:#e8ece2; --muted:#9ba593; --border:#2d3526; --border-strong:#3a432f;
+    --accent:#63bd82; --accent-fg:#0d1309; --accent-soft:#1f3326;
+    --water:#0f1316; --land:#1c201d; --land-stroke:#333a34; --land-dim:#171a18; --road:#525b52; --border-line:#e0564e;
+    --clay:#e07d4e; --long:#5f93e0; --rifle:#5fb97e; --pistol:#e0b24a; --ipsc:#a784e6;
+    --star:#edc256; --loc:#e8667e;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#10130d; --surface:#181d14; --panel:#1e241a; --panel-2:#252c20;
+    --fg:#e8ece2; --muted:#9ba593; --border:#2d3526; --border-strong:#3a432f;
+    --accent:#63bd82; --accent-fg:#0d1309; --accent-soft:#1f3326;
+    --water:#0f1316; --land:#1c201d; --land-stroke:#333a34; --land-dim:#171a18; --road:#525b52; --border-line:#e0564e;
+    --clay:#e07d4e; --long:#5f93e0; --rifle:#5fb97e; --pistol:#e0b24a; --ipsc:#a784e6;
+    --star:#edc256; --loc:#e8667e;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:"Source Sans 3",system-ui,sans-serif;line-height:1.5}
+  .wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+  h1,h2,h3{font-family:"Oswald","Source Sans 3",sans-serif;font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+  a{color:var(--accent)}
+  .eyebrow{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted);font-weight:500}
+
+  header{padding-block:22px 10px;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between}
+  header h1{font-size:clamp(26px,4.4vw,40px);letter-spacing:.01em}
+  header p{margin:4px 0 0;color:var(--muted);max-width:60ch}
+  .theme-btn{flex:none;border:1px solid var(--border-strong);background:var(--surface);color:var(--fg);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+  .theme-btn:hover{border-color:var(--accent)}
+
+  .note{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:11px 14px;margin:6px 0 14px;font-size:13.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+  .note b{color:var(--fg)}
+  .note button{margin-left:auto;flex:none;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:18px;line-height:1;padding:0 2px}
+
+  .toolbar{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+  .toolrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .toolrow .lbl{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);margin-right:2px;min-width:70px}
+  .search{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;padding:8px 12px}
+  .search input{border:0;background:transparent;color:var(--fg);font:inherit;width:100%;min-width:0;outline:none}
+  .search svg{flex:none;color:var(--muted)}
+
+  .chip{border:1px solid var(--border-strong);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 13px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.12s}
+  .chip:hover{border-color:var(--accent)}
+  .chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+  .chip .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .chip.cat[aria-pressed="true"]{background:var(--accent-soft);color:var(--fg);border-color:var(--accent)}
+  .chip .cnt{font-size:11px;opacity:.7;font-variant-numeric:tabular-nums}
+  .chip.ghost{background:transparent}
+  .chip.act{border-color:var(--accent);color:var(--accent)}
+
+  .locbar{display:none;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:13px}
+  .locbar.on{display:flex}
+  .locbar input[type=range]{accent-color:var(--accent);flex:1 1 120px;min-width:100px}
+  .locbar .pin{color:var(--loc)}
+  .locbar button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:16px}
+
+  /* Eigene-Bahn-Formular */
+  .form{display:none;background:var(--panel);border:1px solid var(--border-strong);border-radius:12px;padding:14px;margin-bottom:14px}
+  .form.on{display:block}
+  .form h2{font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+  .field{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .field label{font-size:11.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .field input,.field select{font:inherit;padding:7px 9px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--fg);min-width:0}
+  .checks{display:flex;flex-wrap:wrap;gap:6px 14px;margin:4px 0}
+  .checks label{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:500;cursor:pointer}
+  .checks input{accent-color:var(--accent)}
+  .formact{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+  .btn{font:inherit;font-weight:600;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--border-strong);background:var(--surface);color:var(--fg)}
+  .btn.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+  .btn:hover{border-color:var(--accent)}
+  .formmsg{font-size:12.5px;color:var(--loc)}
+  .pickhint{font-size:12px;color:var(--accent);font-weight:600}
+  textarea#expTa{width:100%;min-height:90px;font:12px ui-monospace,monospace;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--fg);padding:8px;margin-top:8px;display:none}
+  textarea#expTa.on{display:block}
+
+  .headbtns{display:flex;gap:8px;flex:none;flex-wrap:wrap;justify-content:flex-end}
+  #iopanel textarea{width:100%;min-height:120px;font:12px ui-monospace,monospace;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--fg);padding:9px;resize:vertical;margin-bottom:2px}
+  #iopanel .iolabel{display:block;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--muted);margin:10px 0 4px}
+  #iopanel .iohint{font-size:12.5px;color:var(--muted);margin:0 0 6px}
+  .layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,1fr);gap:16px;align-items:start}
+  .mappanel{position:relative;background:var(--water);border:1px solid var(--border-strong);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  svg.map{display:block;width:100%;aspect-ratio:1101/837;touch-action:none;cursor:grab}
+  svg.map.grabbing{cursor:grabbing}
+  svg.map.picking{cursor:crosshair}
+  .land{fill:var(--land);stroke:var(--border-line);stroke-width:1.8;stroke-linejoin:round;transition:fill .15s,opacity .15s}
+  .land.dim{fill:var(--land-dim);opacity:.55}
+  .road{fill:none;stroke:var(--road);stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round;opacity:.85}
+  .cityDot{fill:var(--muted);opacity:.5}
+  .cityTxt{fill:var(--muted);font-family:"Source Sans 3",sans-serif;opacity:.75;paint-order:stroke;stroke:var(--water);stroke-width:3px;stroke-linejoin:round}
+  .pin{cursor:pointer}
+  .pin circle.halo,.pin circle.ring{fill:none;stroke:none}
+  .pin circle.body{stroke:var(--surface);stroke-width:2}
+  .pin:hover circle.body{stroke:var(--fg)}
+  .pin.fav circle.ring{stroke:var(--star)}
+  .pin.custom circle.ring{stroke:var(--accent);stroke-dasharray:3 3}
+  .pin.sel circle.halo{stroke:var(--fg);opacity:.9}
+  .pin[hidden]{display:none}
+  #locMark circle.lo{fill:var(--loc);stroke:var(--surface)}
+  #locMark circle.lr{fill:none;stroke:var(--loc);opacity:.5}
+  #pickMark circle{fill:var(--accent);stroke:var(--surface)}
+
+  .mapctl{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px;z-index:5}
+  .mapctl button{width:34px;height:34px;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface);color:var(--fg);font-size:18px;font-weight:600;cursor:pointer;box-shadow:var(--shadow);display:grid;place-items:center;line-height:1}
+  .mapctl button:hover{border-color:var(--accent);color:var(--accent)}
+  .mapctl button.wide{width:auto;padding:0 10px;font-size:12px;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+
+  .legend{position:absolute;left:10px;bottom:10px;background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--border);border-radius:10px;padding:8px 11px;font-size:12px;backdrop-filter:blur(4px);z-index:5;max-width:min(62%,270px)}
+  .legend .row{display:flex;align-items:center;gap:7px;margin:3px 0}
+  .legend .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .legend .ttl{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;color:var(--muted);margin-bottom:3px}
+
+  .tooltip{position:absolute;pointer-events:none;z-index:20;background:var(--surface);color:var(--fg);border:1px solid var(--border-strong);padding:9px 11px;border-radius:11px;font-size:13px;max-width:280px;box-shadow:var(--shadow);opacity:0;transform:translateY(4px);transition:opacity .1s,transform .1s}
+  .tooltip.on{opacity:1;transform:none}
+  .tooltip .tipflag{font-size:15px;margin-right:4px;vertical-align:-1px}
+  .tooltip b{font-family:"Oswald",sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em}
+  .tooltip .sub{font-weight:400;color:var(--muted);font-size:12px;display:block;margin:3px 0 7px}
+  .tooltip .tipbadges{display:flex;flex-wrap:wrap;gap:5px}
+  .tooltip .tiplink{display:block;margin-top:7px;font-size:12px;color:var(--accent);font-weight:600;word-break:break-all}
+
+  .mapcol{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .detail{border:1px solid var(--border-strong);background:var(--surface);border-radius:14px;padding:14px;box-shadow:var(--shadow);min-width:0}
+  .detail-empty{color:var(--muted);font-size:13.5px;padding:6px 2px;line-height:1.5}
+  .detail .dhead{display:flex;align-items:flex-start;gap:10px}
+  .detail .dhead h2{font-size:20px;flex:1;min-width:0}
+  .detail .dhead h2 .orig{display:block;font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:12.5px;color:var(--muted)}
+  .detail .dflag{font-size:18px;flex:none;margin-top:2px}
+  .detail .ddist{font-size:13px;font-weight:700;color:var(--accent);flex:none;font-variant-numeric:tabular-nums;margin-top:3px}
+  .detail .dstar{flex:none;border:0;background:transparent;cursor:pointer;font-size:20px;line-height:1;color:var(--border-strong)}
+  .detail .dstar.on{color:var(--star)}
+  .detail .dloc{font-size:13px;color:var(--muted);margin:2px 0 9px}
+  .notesblock{margin-top:12px;border-top:1px solid var(--border);padding-top:11px}
+  .notesblock label{display:block;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:var(--muted);margin-bottom:5px}
+  .notesblock textarea{width:100%;min-height:72px;font:inherit;font-size:13.5px;padding:9px 11px;border:1px solid var(--border-strong);border-radius:9px;background:var(--panel);color:var(--fg);resize:vertical}
+  .notesblock .hint{font-size:11px;color:var(--muted);margin-top:4px}
+  .field textarea{font:inherit;padding:7px 9px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--fg);min-width:0;resize:vertical;width:100%}
+  .card .noteflag{font-size:11.5px;color:var(--accent);margin:-2px 0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sidebar{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .count{font-size:13px;color:var(--muted)}
+  .count b{color:var(--fg);font-variant-numeric:tabular-nums}
+  .list{display:flex;flex-direction:column;gap:8px;max-height:680px;overflow:auto;padding-right:2px}
+  .card{border:1px solid var(--border);background:var(--surface);border-radius:11px;padding:11px 12px;cursor:pointer;transition:.12s;scroll-margin:8px}
+  .card:hover{border-color:var(--accent)}
+  .card.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+  .card.own{border-left:3px solid var(--accent)}
+  .card .top{display:flex;align-items:flex-start;gap:8px}
+  .card h3{font-size:16.5px;flex:1;min-width:0}
+  .card h3 .orig{display:block;font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:12px;color:var(--muted)}
+  .card .flag{flex:none;font-size:14px;margin-top:1px}
+  .card .dist{flex:none;font-size:12px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;margin-top:2px}
+  .card .star{flex:none;border:0;background:transparent;cursor:pointer;font-size:17px;line-height:1;color:var(--border-strong);padding:0}
+  .card .star.on{color:var(--star)}
+  .card .loc{font-size:12.5px;color:var(--muted);margin:1px 0 7px}
+  .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
+  .badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid transparent;display:inline-flex;gap:5px;align-items:center}
+  .badge .d{width:7px;height:7px;border-radius:50%}
+  .price{font-size:12.5px;color:var(--fg);background:var(--panel);border-radius:7px;padding:6px 9px;margin-bottom:8px}
+  .price .src{color:var(--muted);font-size:11px}
+  .price.sourced{border-left:3px solid var(--accent)}
+  .flags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  .flagpill{font-size:11px;color:var(--fg);background:var(--panel-2);border-radius:999px;padding:2px 9px}
+  .flagpill.guest{background:var(--accent-soft)}
+  .links{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .links a{font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--border-strong);border-radius:8px;padding:6px 11px;display:inline-flex;gap:6px;align-items:center}
+  .links a:hover{border-color:var(--accent)}
+  .links a.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+  .links .edit{margin-left:auto;border:0;background:transparent;color:var(--accent);font-size:12.5px;font-weight:600;cursor:pointer}
+  .links .del{border:0;background:transparent;color:var(--loc);font-size:12.5px;font-weight:600;cursor:pointer}
+  .links .confirm{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;color:var(--loc);font-weight:600}
+  .links .confirm button{border:1px solid var(--border-strong);background:var(--surface);color:var(--fg);border-radius:6px;padding:3px 9px;font:inherit;font-weight:600;cursor:pointer}
+  .links .confirm button[data-yes]{background:var(--loc);color:#fff;border-color:var(--loc)}
+  .empty{padding:24px 12px;text-align:center;color:var(--muted);font-size:13.5px}
+
+  footer{margin:26px 0 34px}
+  details.info{border:1px solid var(--border);background:var(--panel);border-radius:11px;padding:0 14px;margin-top:12px}
+  details.info summary{cursor:pointer;padding:12px 0;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.07em;font-size:13px;color:var(--fg)}
+  details.info[open]{padding-bottom:14px}
+  details.info p{margin:0 0 8px;font-size:13px;color:var(--muted)}
+  .srcs{font-size:11.5px;color:var(--muted);margin-top:14px;line-height:1.7}
+  .srcs a{color:var(--muted)}
+
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr}
+    .list{max-height:none}
+    .toolrow .lbl{min-width:0;width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Interaktive Karte · DE · PL · CZ · AT</div>
+      <h1>Schießbahnen Mitteleuropa</h1>
+      <p>Tontauben, Long Range, Büchse &amp; Kurzwaffe. Fahre über einen Punkt oder klick ihn an — direkt unter der Karte erscheinen alle Infos, Preise, Links und ein Freitextfeld für eigene Notizen.</p>
+    </div>
+    <div class="headbtns">
+      <button class="theme-btn" id="ioBtn" type="button">⇅ Import / Export</button>
+      <button class="theme-btn" id="theme" type="button" aria-label="Design umschalten"><span id="themeIcon">🌙</span><span id="themeLbl">Dunkel</span></button>
+    </div>
+  </header>
+
+  <div class="note" id="disc">
+    <span>⚠️</span>
+    <span><b>Kuratierte Auswahl echter Anlagen</b> — als Startpunkt, nicht vollständig. Grenzen sind schematisch (nur zur Orientierung, keine Navigationskarte). Preise sind <b>Orientierungswerte</b>; nur mit „Beleg“ markierte stammen aus einer Quelle. Angaben wie „Gastschützen“, „Leihwaffe“ oder „Indoor“ sind plausible Einordnungen — <b>immer vorab auf der Website / telefonisch prüfen</b>.</span>
+    <button type="button" id="discX" aria-label="Hinweis schließen">×</button>
+  </div>
+
+  <div class="toolbar">
+    <div class="toolrow">
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Suche nach Name oder Ort …" autocomplete="off">
+      </label>
+      <button class="chip ghost" id="favF" type="button" aria-pressed="false">★ Favoriten</button>
+      <button class="chip ghost" id="locBtn" type="button">📍 Standort &amp; Umkreis</button>
+      <button class="chip ghost" id="addBtn" type="button">➕ Eigene Bahn</button>
+      <button class="chip ghost" id="resetBtn" type="button" hidden>↺ Originaldaten zurücksetzen</button>
+    </div>
+    <div class="locbar" id="locbar">
+      <span class="pin">📍</span>
+      <span id="locTxt">Standort gesetzt</span>
+      <span>· Umkreis:</span>
+      <input type="range" id="radius" min="25" max="1525" step="25" value="1525">
+      <b id="radiusLbl" style="min-width:52px;text-align:right">∞</b>
+      <button type="button" id="locClear" title="Standort entfernen">✕</button>
+    </div>
+    <div class="toolrow" id="countryRow">
+      <span class="lbl">Land</span>
+    </div>
+    <div class="toolrow" id="catRow">
+      <span class="lbl">Disziplin</span>
+    </div>
+    <div class="toolrow" id="svcRow">
+      <span class="lbl">Service</span>
+    </div>
+  </div>
+
+  <div class="form" id="form">
+    <h2 id="fTitle">➕ Eigene Bahn hinzufügen</h2>
+    <div class="fgrid">
+      <div class="field"><label for="fName">Name *</label><input id="fName" type="text" placeholder="z.B. Schützenverein …"></div>
+      <div class="field"><label for="fCity">Ort</label><input id="fCity" type="text" placeholder="Stadt / Region"></div>
+      <div class="field"><label for="fCountry">Land</label>
+        <select id="fCountry"><option value="DE">Deutschland</option><option value="PL">Polen</option><option value="CZ">Tschechien</option><option value="AT">Österreich</option></select></div>
+      <div class="field"><label for="fWeb">Webadresse</label><input id="fWeb" type="url" placeholder="https://…"></div>
+      <div class="field"><label for="fLat">Breitengrad (lat)</label><input id="fLat" type="number" step="0.0001" placeholder="z.B. 50.1"></div>
+      <div class="field"><label for="fLon">Längengrad (lon)</label><input id="fLon" type="number" step="0.0001" placeholder="z.B. 8.6"></div>
+    </div>
+    <div class="formact" style="margin:8px 0 0">
+      <button class="btn" type="button" id="fFetch">🔎 Daten vom Link holen</button>
+      <span class="pickhint" id="fetchMsg" hidden></span>
+    </div>
+    <div class="checks" id="fCats" style="margin-top:10px">
+      <span class="lbl" style="width:100%;font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)">Disziplinen *</span>
+      <label><input type="checkbox" value="trap">Trap</label>
+      <label><input type="checkbox" value="skeet">Skeet</label>
+      <label><input type="checkbox" value="parcours">Parcours</label>
+      <label><input type="checkbox" value="long">Long Range</label>
+      <label><input type="checkbox" value="rifle">Büchse</label>
+      <label><input type="checkbox" value="pistol">Kurzwaffe</label>
+      <label><input type="checkbox" value="ipsc">IPSC</label>
+    </div>
+    <div class="checks" id="fSvc">
+      <span class="lbl" style="width:100%;font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)">Service</span>
+      <label><input type="checkbox" value="guest">Gastschützen</label>
+      <label><input type="checkbox" value="rental">Leihwaffe</label>
+      <label><input type="checkbox" value="courses">Einsteigerkurse</label>
+      <label><input type="checkbox" value="indoor">Indoor</label>
+    </div>
+    <div class="field" style="margin-top:8px"><label for="fNotes">Freitext · eigene Notizen, Preise, Erfahrungen</label><textarea id="fNotes" rows="3" placeholder="z.B. 2× dort gewesen, 25 WS ≈ 15 €, nette Standaufsicht …"></textarea></div>
+    <div class="formact">
+      <button class="btn" type="button" id="fPick">📍 Position auf Karte wählen</button>
+      <span class="pickhint" id="pickHint" hidden>Klicke auf die Karte …</span>
+      <button class="btn primary" type="button" id="fSave">Speichern</button>
+      <button class="btn" type="button" id="fCancel">Abbrechen</button>
+      <span class="formmsg" id="fMsg"></span>
+    </div>
+  </div>
+
+  <div class="form" id="iopanel">
+    <h2>⇅ Import / Export – alle Bahnen &amp; eigene Daten</h2>
+    <p class="iohint">Der Export speichert immer den <b>gesamten Datensatz</b> – alle Anlagen (gefundene + eigene) samt Notizen, Favoriten und Änderungen – als <b>.json-Datei</b>. Der Import <b>ergänzt</b>: neue Bahnen werden aufgenommen, Dubletten überschrieben, und es wird <b>nichts gelöscht</b>, auch wenn die Datei nicht alle Bahnen enthält. Ganz ohne Kopieren.</p>
+    <label class="iolabel">Export als Datei</label>
+    <div class="formact"><button class="btn" id="ioExportBtn" type="button">⭳ Als Datei exportieren (.json)</button><span id="ioExpMsg" class="formmsg" style="color:var(--muted)"></span></div>
+    <label class="iolabel">Import aus Datei</label>
+    <div class="formact">
+      <input type="file" id="ioFile" accept="application/json,.json,.txt" hidden>
+      <button class="btn" id="ioPick" type="button">⭱ Datei auswählen …</button>
+      <button class="btn primary" id="ioImportBtn" type="button" disabled>Importieren</button>
+      <button class="btn" id="ioClose" type="button">Schließen</button>
+      <span id="ioMsg" class="formmsg"></span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="mapcol">
+    <div class="mappanel">
+      <svg class="map" id="map" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Karte der Schießbahnen">
+        <g id="gLand"></g>
+        <g id="gRoads"></g>
+        <g id="gCity"></g>
+        <g id="gPins"></g>
+        <g id="locMark" hidden><circle class="lr"></circle><circle class="lo"></circle></g>
+        <g id="pickMark" hidden><circle></circle></g>
+      </svg>
+      <div class="mapctl">
+        <button type="button" id="zin" aria-label="Hineinzoomen">+</button>
+        <button type="button" id="zout" aria-label="Herauszoomen">−</button>
+        <button type="button" class="wide" id="zreset">Alle</button>
+      </div>
+      <div class="tooltip" id="tip"></div>
+    </div>
+      <div class="detail" id="detail"></div>
+    </div>
+
+    <div class="sidebar">
+      <div class="count" id="count"></div>
+      <div class="list" id="list"></div>
+    </div>
+  </div>
+
+  <footer>
+    <details class="info">
+      <summary>Bedienung &amp; eigene Bahnen</summary>
+      <p><b>Standort &amp; Umkreis:</b> „📍 Standort &amp; Umkreis“ klicken, dann auf die Karte tippen. Die Liste sortiert dann nach Entfernung; mit dem Regler kannst du einen Umkreis begrenzen.</p>
+      <p><b>Eigene Bahn:</b> „➕ Eigene Bahn“ öffnet ein Formular. Position entweder als Koordinaten eintragen oder „Position auf Karte wählen“ und auf die Karte klicken. Webadresse optional. Deine Bahnen werden lokal im Browser gespeichert (grün umrandet) und lassen sich per „⭳ Eigene exportieren“ als Text sichern.</p>
+      <p><b>🔎 Daten vom Link holen:</b> Webadresse eintragen und den Knopf drücken — in der Claude-Desktop-App öffnet der eingebaute Browser die Seite, liest sie aus und füllt die Felder (Name, Ort, Disziplinen, Preis, Service). Koordinaten werden dabei meist aus der Adresse geschätzt und als Punkt gesetzt — bitte per Karten-Klick prüfen. Ohne App-Browser erfolgt eine KI-Schätzung aus der URL. Alle Werte vor dem Speichern kontrollieren.</p>
+      <p><b>Bearbeiten &amp; Löschen:</b> Jede Karte hat „Bearbeiten“ (öffnet das Formular vorausgefüllt) und „Löschen“ (mit Rückfrage Ja/Nein). Änderungen an den vorgegebenen Bahnen werden lokal gespeichert und sind über „↺ Originaldaten zurücksetzen“ (erscheint oben, sobald du etwas geändert/gelöscht hast) wiederherstellbar. Eigene Bahnen werden dabei nicht angetastet.</p>
+      <p><b>Gastschützen:</b> Der Service-Filter zeigt Anlagen, die erfahrungsgemäß auch Nicht-Mitglieder/Gäste schießen lassen — bitte trotzdem vorher bestätigen lassen.</p>
+      <p><b>Tschechien als Ziel:</b> CZ hat ein vergleichsweise liberales Waffenrecht; Gastschießen ohne eigenen Waffenschein ist bei vielen kommerziellen Ständen üblich. Aus der Oberpfalz (z.B. Neumarkt) sind die grenznahen Stände bei Cheb/Eger und im Raum Pilsen in ~1,5–2 h erreichbar (z.B. JIMI, Leiko, Placy). Entfernungen sind grobe Fahrzeit-Schätzungen — vor der Fahrt Öffnungszeiten und Einfuhr-/Waffenrecht prüfen.</p>
+    </details>
+    <div class="srcs" id="srcs"></div>
+  </footer>
+</div>
+
+<script>
+/* ---------- Projektion ---------- */
+var LON0=5.2, LAT1=55.3, COS=Math.cos(50.65*Math.PI/180), K=90;
+var W=(24.5-LON0)*COS*K, H=(LAT1-46.0)*K, R=W/H;
+function px(lon){return (lon-LON0)*COS*K;}
+function py(lat){return (LAT1-lat)*K;}
+function user2lonlat(x,y){return {lon:x/(COS*K)+LON0, lat:LAT1-y/K};}
+
+/* ---------- Länder (schematische Umrisse) ---------- */
+var COUNTRIES={
+ DE:[[9.4,54.8],[11.0,54.4],[12.5,54.5],[13.4,54.5],[14.0,53.9],[14.1,52.9],[14.6,52.3],[15.0,51.3],[14.9,51.0],[14.3,50.9],[13.0,50.5],[12.4,50.3],[12.1,50.3],[12.5,49.8],[13.4,49.0],[13.8,48.6],[13.0,47.7],[12.9,47.7],[11.3,47.4],[10.2,47.3],[9.6,47.5],[8.6,47.7],[7.6,47.6],[8.2,48.9],[7.8,49.0],[6.4,49.2],[6.1,50.0],[6.0,50.8],[6.0,51.4],[6.7,51.9],[7.0,52.4],[7.0,53.0],[7.2,53.3],[8.3,53.6],[8.5,53.7],[8.6,54.3],[8.6,54.9],[9.4,54.8]],
+ PL:[[14.3,53.9],[14.9,54.0],[16.5,54.4],[18.6,54.6],[19.3,54.4],[19.8,54.4],[22.8,54.4],[23.5,54.1],[23.9,52.6],[23.6,52.0],[23.2,51.6],[24.1,50.8],[22.6,49.6],[22.9,49.0],[22.0,49.2],[21.0,49.4],[19.8,49.2],[19.0,49.4],[18.6,49.9],[17.6,50.2],[16.9,50.4],[16.4,50.6],[15.4,50.8],[14.8,50.9],[14.9,51.0],[14.6,51.8],[14.4,52.8],[14.1,52.9],[14.3,53.9]],
+ CZ:[[12.1,50.3],[12.4,50.3],[13.0,50.5],[14.3,50.9],[14.9,51.0],[14.8,50.9],[15.4,50.8],[16.4,50.6],[16.9,50.4],[17.6,50.2],[18.6,49.9],[18.9,49.5],[18.1,49.1],[17.9,48.9],[17.1,48.8],[16.9,48.8],[16.5,48.8],[16.0,48.8],[15.2,48.9],[14.7,48.6],[13.8,48.6],[13.4,49.0],[12.5,49.8],[12.1,50.3]],
+ AT:[[9.6,47.5],[10.2,47.3],[11.0,47.4],[12.2,47.6],[13.0,47.5],[13.0,47.7],[13.8,48.6],[14.7,48.6],[15.2,48.9],[16.0,48.8],[16.9,48.8],[17.1,48.0],[16.5,47.0],[16.0,46.7],[15.0,46.6],[14.5,46.4],[13.7,46.5],[12.8,46.6],[12.2,46.9],[11.0,46.8],[10.4,46.9],[10.1,47.0],[9.6,47.1],[9.6,47.5]]
+};
+
+/* ---------- Städte ---------- */
+var CITIES=[
+ ["Berlin",13.40,52.52],["Hamburg",10.0,53.55],["München",11.58,48.14],["Köln",6.96,50.94],
+ ["Frankfurt",8.68,50.11],["Stuttgart",9.18,48.78],["Dresden",13.74,51.05],
+ ["Warschau",21.01,52.23],["Krakau",19.94,50.06],["Danzig",18.65,54.35],["Breslau",17.04,51.11],["Posen",16.93,52.41],
+ ["Prag",14.42,50.08],["Brünn",16.61,49.19],["Ostrau",18.29,49.84],
+ ["Wien",16.37,48.21],["Graz",15.44,47.07],["Salzburg",13.05,47.80],["Innsbruck",11.40,47.27],["Linz",14.29,48.31]
+];
+
+/* ---------- Fernstraßen (schematische Hauptkorridore, grob) ---------- */
+var ROADS=[
+ [[13.40,52.52],[12.37,51.34],[11.08,49.45],[11.58,48.14]],
+ [[6.96,50.94],[8.68,50.11],[9.93,49.79],[11.08,49.45],[12.10,49.01],[13.46,48.57]],
+ [[11.08,49.45],[11.86,49.44],[12.50,49.64],[13.38,49.74],[14.44,50.08]],
+ [[11.58,48.14],[13.05,47.80],[14.29,48.31],[16.37,48.21]],
+ [[14.44,50.08],[16.61,49.19],[18.29,49.84]],
+ [[16.61,49.19],[16.37,48.21]],
+ [[13.74,51.05],[14.04,50.66],[14.44,50.08]],
+ [[13.40,52.52],[14.55,52.34],[16.93,52.41],[19.46,51.76],[21.01,52.23]],
+ [[17.04,51.11],[19.03,50.26],[19.94,50.06]],
+ [[10.00,53.55],[13.40,52.52]],
+ [[8.68,50.11],[9.18,48.78],[11.58,48.14]],
+ [[6.96,50.94],[7.00,52.40],[10.00,53.55]]
+];
+
+/* ---------- Daten: echte, benannte Anlagen (Koordinaten approximativ) ---------- */
+/* orig = Originalname (für Maps-Suche) · guest/rental/courses/indoor = plausibler Service
+   price "" = Länder-Orientierung · src:true = aus Quelle belegt */
+var RANGES=[
+ {n:"Target World – Landscheid",c:"DE",city:"Landscheid, Eifel",lat:49.985,lon:6.785,cats:["trap","skeet","parcours","rifle"],
+  price:"25 WS Trap/Skeet 14,50 € · Kompakt-Parcours 16,50 € · Jagd 15 WS 8,70 €",src:true,srcNote:"Preisliste Stand 07/2024",
+  web:"https://target-world.de",guest:1,rental:1,courses:1},
+ {n:"Olympia-Schießanlage Hochbrück",c:"DE",city:"Garching b. München",lat:48.249,lon:11.645,cats:["trap","skeet","rifle","pistol"],price:""},
+ {n:"Schießsportzentrum Suhl",c:"DE",city:"Suhl, Thüringen",lat:50.606,lon:10.690,cats:["trap","skeet","rifle","pistol"],price:"",courses:1},
+ {n:"BDS-Anlage Philippsburg",c:"DE",city:"Philippsburg, BW",lat:49.233,lon:8.458,cats:["long","rifle","pistol","ipsc"],price:"",src:true,srcNote:"300-m-Bahn bis .338; BDS-Bundesanlage, Austragung vieler IPSC-Meisterschaften",web:"http://www.schiessanlage-philippsburg.de/"},
+ {n:"Wiesbadener Schützengesellschaft",c:"DE",city:"Wiesbaden",lat:50.1046,lon:8.1890,cats:["long","rifle","pistol"],price:"",src:true,srcNote:"Langwaffen-/300-m-Stand (über VESAB-Karte)",web:"https://wsg-ev.de/langwaffen/"},
+
+ {n:"Schießstand Bellona Marynino",orig:"Strzelnica Bellona Marynino",c:"PL",city:"Baboszewo, Mazowieckie",lat:52.66,lon:20.47,cats:["long","rifle","pistol","trap"],
+  price:"",src:true,srcNote:"größte zivile Anlage PL · 36 Bahnen 10–500 m",guest:1,rental:1,courses:1},
+ {n:"Schießstand Witu",orig:"Strzelnica Witu",c:"PL",city:"Zielonka b. Warschau",lat:52.30,lon:21.15,cats:["long","rifle","pistol"],price:"",guest:1,rental:1},
+ {n:"Schießstand JKS „UR“ Jawor",orig:"Strzelnica JKS UR Jawor",c:"PL",city:"Jawor, Niederschlesien",lat:51.052,lon:16.193,cats:["long","rifle"],
+  price:"600-m-Achse 50 zł/Std (Gruppe 250) · 300-m-Achse 40 zł/Std (Gruppe 200)",src:true,srcNote:"Gewehr 300/600 m · offizielle Preisliste, Stand bitte prüfen",web:"https://www.jksur.pl",guest:1},
+ {n:"FSO Schießstand Warschau",orig:"FSO Gun Range Warszawa",c:"PL",city:"Warschau",lat:52.272,lon:21.040,cats:["pistol","rifle"],
+  price:"",src:true,srcNote:"ab ~20 zł / 30 min",guest:1,rental:1,courses:1,indoor:1},
+ {n:"Schießstand Dobieszczyn",orig:"Strzelnica Dobieszczyn",c:"PL",city:"Dobieszczyn b. Stettin",lat:53.42,lon:14.30,cats:["trap"],price:""},
+ {n:"Schießstand Gdańsk (Gäste)",orig:"Shooting Range Gdansk",c:"PL",city:"Danzig",lat:54.352,lon:18.646,cats:["pistol","rifle"],
+  price:"",srcNote:"Touristen-/Gäste-Angebot",guest:1,rental:1,courses:1,indoor:1},
+
+ {n:"Schießstand Mělník",orig:"Střelnice Mělník",c:"CZ",city:"Mělník",lat:50.353,lon:14.474,cats:["skeet","trap","parcours","rifle","pistol"],
+  price:"",srcNote:"Skeet, Compak, Jagdparcours, Trap",web:"https://www.kudyznudy.cz/aktivity/strelnice-melnik",guest:1,rental:1,courses:1},
+ {n:"Schießstand Vlašim",orig:"Střelnice Vlašim",c:"CZ",city:"Vlašim",lat:49.703,lon:14.903,cats:["trap","skeet","parcours"],price:"",srcNote:"inkl. Instrukteur buchbar",guest:1,rental:1,courses:1},
+ {n:"Schießstand Hovorany",orig:"Střelnice Hovorany",c:"CZ",city:"Hovorany, Südmähren",lat:48.953,lon:17.010,cats:["trap","skeet","ipsc"],price:"",src:true,srcNote:"auch IPSC-Wettkämpfe (ASDS-Kalender)",guest:1},
+ {n:"Olympia-Schießstand Brünn",orig:"Olympijská střelnice Brno",c:"CZ",city:"Brünn",lat:49.211,lon:16.470,cats:["trap","skeet"],price:"",srcNote:"Austragung nat. Meisterschaften"},
+ {n:"Schießstand Ostrava – Stará Bělá",orig:"Střelnice Ostrava Stará Bělá",c:"CZ",city:"Ostrau",lat:49.753,lon:18.221,cats:["rifle","pistol"],price:"",srcNote:"Kurz-/Langwaffe bis 100 m",guest:1,rental:1},
+ {n:"Schießstand Střelecký servis Prag",orig:"Střelecký servis Praha",c:"CZ",city:"Prag",lat:50.095,lon:14.520,cats:["pistol","rifle"],
+  price:"",srcNote:"Indoor, Gäste/Touristen",guest:1,rental:1,courses:1,indoor:1},
+
+ {n:"SV Aichfeld Murboden",c:"AT",city:"Zeltweg, Steiermark",lat:47.190,lon:14.753,cats:["trap","skeet","parcours"],price:"",src:true,srcNote:"Trap/Skeet-Runde ~6,50–8,50 €"},
+ {n:"Schießzentrum Wiener Neustadt",c:"AT",city:"Wiener Neustadt, NÖ",lat:47.822,lon:16.250,cats:["rifle","pistol"],price:"",guest:1},
+ {n:"Hubertusclub Almtal – Manger",c:"AT",city:"Grünau im Almtal, OÖ",lat:47.85,lon:13.95,cats:["rifle"],price:"",srcNote:"jagdl. Büchsenstand, Pauschale"},
+
+ /* --- Erweiterung: Tschechien grenznah & mehr, plus DE-Grenze --- */
+ {n:"Schießstand JIMI",c:"CZ",city:"Cheb (Eger)",lat:50.080,lon:12.400,cats:["pistol","rifle"],
+  price:"Barzahlung; Mi–Fr 16–20, Sa/So 14–18 Uhr · Preisliste auf Website",srcNote:"direkt an der Grenze, ohne Waffenschein, Leihwaffen, deutschsprachig",web:"https://schiessstand-jimi.de",guest:1,rental:1,courses:1,indoor:1},
+ {n:"Schießstand Prag (Prague Ranger)",orig:"Prague Ranger",c:"CZ",city:"Prag",lat:50.071,lon:14.440,cats:["pistol","rifle","long"],
+  price:"Pakete ~80–189 € (3–10 Waffen) · Outdoor 25–500 m",src:true,srcNote:"ohne Waffenschein, Leihwaffen, Indoor + Outdoor",web:"https://www.pragueranger.cz/de/",guest:1,rental:1,courses:1,indoor:1},
+ {n:"Schießstand Placy",orig:"Střelnice Placy",c:"CZ",city:"Placy b. Příbram",lat:49.6728,lon:14.1085,cats:["long","rifle"],
+  price:"",src:true,srcNote:"Long Range bis 500 m (Standort via InnTAKT & VESAB bestätigt)",web:"http://placy.cz",guest:1,courses:1},
+ {n:"Schießstand Leiko",orig:"Střelnice LEIKO Plzeň",c:"CZ",city:"Plzeň (Pilsen)",lat:49.743,lon:13.373,cats:["pistol","rifle","ipsc"],
+  price:"Standmiete 190 Kč/30 Min · Schnuppern ohne Schein ab 850 Kč",src:true,srcNote:"ohne Waffenschein, Leihwaffen, IPSC",web:"https://www.leiko.cz",guest:1,rental:1,courses:1,indoor:1},
+ {n:"Schießstand Karlov",orig:"Střelnice Plzeň Karlov",c:"CZ",city:"Plzeň (Pilsen)",lat:49.735,lon:13.360,cats:["pistol","rifle"],
+  price:"Permanentkarte 10 Std. 2.000 Kč · 30-m-Stand",srcNote:"Leihwaffen; Berechtigung mitbringen",web:"https://www.strelnicekarlov.cz",rental:1,indoor:1},
+ {n:"Schießstand Goldie Arms",orig:"Goldie Arms Kynšperk nad Ohří",c:"CZ",city:"Kynšperk nad Ohří",lat:50.118,lon:12.525,cats:["pistol","rifle"],
+  price:"",srcNote:"Indoor 25/50 m; ohne Waffenschein möglich; nahe Grenze",guest:1,rental:1,indoor:1},
+ {n:"Jagd-Schießstand Nový Bor",orig:"Střelnice Nový Bor",c:"CZ",city:"Nový Bor (Haida)",lat:50.757,lon:14.560,cats:["trap","skeet","parcours"],
+  price:"",srcNote:"Skeet, Trap, Universal/Double Trap, Jagdparcours",guest:1},
+ {n:"Jagd-Schießstand Mimoň (VLS)",orig:"Lovecká střelnice VLS Mimoň",c:"CZ",city:"Mimoň",lat:50.659,lon:14.724,cats:["trap","parcours"],
+  price:"",srcNote:"Jagdparcours, Trap, Hochturm"},
+ {n:"Schießstand Hodonice",orig:"Střelnice Hodonice",c:"CZ",city:"Hodonice b. Znojmo",lat:48.831,lon:16.118,cats:["pistol","rifle","ipsc"],
+  price:"",src:true,srcNote:"IPSC-Großanlage (CZ Extreme Euro Open)"},
+ {n:"Long-Range-Stand Bzenec (VTÚ)",orig:"Střelnice VTÚ Bzenec",c:"CZ",city:"Bzenec, Südmähren",lat:48.973,lon:17.270,cats:["long","rifle"],
+  price:"",src:true,srcNote:"Long Range bis 800 m (über InnTAKT-Karte)",web:"http://www.strelnicebzenec.cz"},
+
+ {n:"Schießanlage Friedenfels",c:"DE",city:"Friedenfels, Oberpfalz",lat:49.918,lon:12.100,cats:["long","rifle"],
+  price:"",srcNote:"Long-Range-Trainings; nahe CZ-Grenze, ~1 h ab Neumarkt"},
+
+ /* --- Erweiterung 2: Recherche 11/2026 (die 3 gewünschten Bahnen + Tiefensuche) --- */
+ {n:"Dornsberg Schützen (Jagdparcours Dornsberg)",c:"DE",city:"Eigeltingen, BW",lat:47.860,lon:8.845,cats:["parcours"],
+  price:"Nicht-Mitglieder 0,48 €/Wurfscheibe + 30 € Standgebühr/Tag · Mitglieder 0,36 €",src:true,
+  srcNote:"großer Jagdparcours (23 Stände / 5 Linien, ~200 Wurfmaschinen); D-Jagdschein bzw. Standaufsichtsnachweis mitbringen; Leihwaffen vor Ort",
+  web:"https://www.dornsberg-schuetzen.de/",guest:1,rental:1,courses:1},
+ {n:"BJV Schießanlage Bockenberg",c:"DE",city:"Thalmassing b. Regensburg",lat:48.954,lon:12.196,cats:["trap","skeet","parcours","rifle","pistol"],
+  price:"Sportl. Trap 25 T. 9,50 € · Jagdl. Trap 15 T. 6,50 € · Parcours 15 T. 8 € · Kugel-/Kurzwaffenstand 60 Min 25 € · Leihwaffe 10 €/Std",src:true,
+  srcNote:"Preisliste 07/2026; Kugelstand 8×100 m, Kurzwaffe 10 m, Laufender Keiler; Jagdschein/WBK bzw. Schießerlaubnis erforderlich",
+  web:"https://www.schiessanlage-bockenberg.de",guest:1,rental:1,courses:1},
+ {n:"SG Steinwald (Schützengemeinschaft)",c:"DE",city:"Reuth b. Erbendorf / Friedenfels, Oberpfalz",lat:49.8702,lon:12.1238,cats:["rifle"],
+  price:"Gäste 12,50 €/30 Min bzw. 25 €/Std · Mitglieder 10 €/Std · Vereinswaffen (.308) leihweise, nur Vereinsmunition",src:true,
+  srcNote:"Büchsenstand 100/200/300 m + Laufender Keiler; Di 19–21 & Fr 18–22 Uhr, So geschlossen; Leihwaffen für Gäste; Navi: „Friedenfels“ eingeben",
+  web:"https://www.sg-steinwald.de",guest:1,rental:1},
+ {n:"Jagdparcours Oberbayern",c:"DE",city:"Hattenhofen b. FFB, Bayern",lat:48.193,lon:11.093,cats:["parcours","rifle"],
+  price:"",srcNote:"Jagdparcours + 100-m- und 25-m-Bahn; Gastschützen mit Standaufsichtsnachweis möglich",guest:1},
+
+ {n:"Schießstand Nysa500",orig:"Strzelnica Nysa500",c:"PL",city:"Regulice b. Nysa, Oppeln",lat:50.474,lon:17.333,cats:["long","rifle"],
+  price:"",srcNote:"500-m-Langdistanzachse",guest:1},
+ {n:"Schießstand Gostyń",orig:"Strzelnica Gostyń",c:"PL",city:"Gostyń, Großpolen",lat:51.878,lon:17.011,cats:["long","rifle","pistol"],
+  price:"Long-Range-Kurs 100–500 m ~350 zł (8 Termine)",src:true,srcNote:"Long Range 100–500 m; Kurse",web:"https://strzelnicagostyn.pl",guest:1,courses:1},
+
+ {n:"Steyr Arms Jagd- & Schießzentrum",c:"AT",city:"Schießzentrum, NÖ",lat:47.7924,lon:16.1909,cats:["trap","skeet","parcours","rifle"],
+  price:"Trap/Skeet/Parcours: Mitglieder 8 € · Nicht-Mitglieder 11 € pro Serie",src:true,
+  srcNote:"Schießzentrum Steyr Arms; Wurfscheibe + 300-m-Langwaffe; Nicht-Mitglieder zugelassen (Standort via InnTAKT & VESAB korrigiert)",web:"https://www.steyr-arms.com/de/schiesszentrum/schiessplatz/",guest:1},
+ {n:"Shooting Park Austria Leobersdorf",c:"AT",city:"Leobersdorf, NÖ",lat:47.920,lon:16.220,cats:["trap","skeet","parcours","rifle","ipsc"],
+  price:"~9 €/Runde (25 Tauben) – Angabe veraltet, bitte prüfen",srcNote:"Trap, Skeet, Doppeltrap, Jagdparcours · Langwaffenstand bis 300 m · IPSC nach Grundausbildung; Zutritt ab 14 J. in Begleitung",web:"http://www.shootingpark.at",guest:1},
+
+ /* --- Erweiterung 3: BJV Neumarkt & Schießkino Hubertus --- */
+ {n:"BJV Neumarkt – Schießanlage Grünberg",c:"DE",city:"Herrnhof b. Neumarkt i.d.OPf., Bayern",lat:49.305,lon:11.490,cats:["trap","parcours","rifle","pistol"],
+  price:"Schnupperschießen p.P.: Trap 139 € · Lang-/Kurzwaffe 75 € · Kombi 199 € (inkl. Leihwaffe, Munition, Wurftauben)",src:true,
+  srcNote:"Schießanlage Grünberg (im Wald); Jagd-/Olympic-Trap (15-Masch.), Jagdparcours, Rollhase, Kugelstand 60/100 m, Kurzwaffe 10/25 m, Laufender Keiler; Do & Sa geöffnet; Schnupperkurse offen für alle; direkt bei Neumarkt",
+  web:"https://www.bjv-neumarkt.de",guest:1,rental:1,courses:1},
+ {n:"Schießkino Hubertus",c:"DE",city:"Willanzheim-Herrnsheim, Unterfranken",lat:49.687,lon:10.236,cats:["trap","skeet","parcours","rifle"],
+  price:"Schießkino 1 Std 96 € (Mo–Fr, +24 € Wochenend-Zuschlag) · 5 Std 450 € · 10 Std 800 € · Schnupperkurs Flinte 150 € / Büchse 120 € p.P.",src:true,
+  srcNote:"Indoor-Schießkino (Videosimulation MARKSMAN, eigene Flinte/Büchse + Pufferpatronen – KEIN scharfer Schuss); alle Flintendisziplinen + Laufender Keiler/Elch/Hirsch; Mo–Fr 17–21 Uhr; Gäste auch ohne Jagdschein willkommen",
+  web:"https://www.schiesskinohubertus.de/",guest:1,rental:1,courses:1,indoor:1},
+
+ /* --- Erweiterung 4: Abgleich mit InnTAKT „Long Range Shooting Europe" (Google-My-Maps), Nov 2026. Nur DE/PL/CZ/AT. Standorte aus der KML. --- */
+ {n:"MSZU – Müller Schießzentrum Ulm",c:"DE",city:"Ulm (Albstraße 78), BW",lat:48.4348,lon:9.9826,cats:["trap","skeet","parcours","long","rifle","pistol","ipsc"],
+  price:"Preisliste 2025/26 (PDF); Standgebühr + Mietwaffe + Munition, Buchung ab ½ Std, Preis je Stand (nicht pro Person); .50-BMG-Mietwaffe 50 €",src:true,
+  srcNote:"Großes Indoor-Zentrum: 300-m-Long-Range (bis 21.000 J, bis .50 BMG), 100 m (17.000 J), 25 m Büchse & Kurzwaffe, Europas größte Indoor-Tontaubenhalle, Schießkino, IPSC-Seminare; Schießen ab 18 für jedermann (ohne Vorkenntnisse); Di–Sa 10–20 Uhr",
+  web:"https://mszu.de",guest:1,rental:1,courses:1,indoor:1},
+ {n:"Mandalay 6 – Sennelager",c:"DE",city:"Sennelager (Paderborn), NRW",lat:51.7969,lon:8.7195,cats:["rifle","long"],price:"",src:true,srcNote:"BDMP bis 300 m (über InnTAKT-Karte)",web:"http://era-d.de/termine.htm"},
+ {n:"Schießstand Alsfeld (SLG Amania)",c:"DE",city:"Alsfeld, Hessen",lat:50.7457,lon:9.3165,cats:["rifle"],price:"",src:true,srcNote:"BDMP bis 300 m (über InnTAKT-Karte)",web:"http://www.slg-amania.de"},
+ {n:"Schießstand Rosenberg (MEK)",c:"DE",city:"Erzgebirge, Sachsen",lat:50.6578,lon:13.1773,cats:["long","rifle"],price:"",src:true,srcNote:"bis 500 m, 18.000 J (über InnTAKT-Karte)",web:"http://www.mek-schuetzen.de"},
+ {n:"SRK Sportschützen Wetzlar",c:"DE",city:"Wetzlar, Hessen",lat:50.5379,lon:8.5415,cats:["rifle"],price:"",src:true,srcNote:"300 m (über InnTAKT-Karte)",web:"http://www.srk-sportschuetzen.de"},
+ {n:"SV Schneckengrün",c:"DE",city:"Schneckengrün (Vogtland), Sachsen",lat:50.5068,lon:12.0671,cats:["rifle"],price:"",src:true,srcNote:"300 m bis 18.000 J (über InnTAKT-Karte)",web:"http://www.sv-schneckengruen.de"},
+ {n:"PSA Lausitz",c:"DE",city:"Lausitz, Sachsen",lat:51.4643,lon:14.7311,cats:["rifle"],price:"",src:true,srcNote:"300 m; Long-Range-Termine (über InnTAKT-Karte)",web:"http://www.long-range-germany.de/termine.htm"},
+ {n:"Schießsportanlage Schützenhof Leipzig",c:"DE",city:"Leipzig, Sachsen",lat:51.3507,lon:12.3347,cats:["rifle"],price:"",src:true,srcNote:"300 m (über InnTAKT-Karte)"},
+ {n:"Schießanlage Oschenberg",c:"DE",city:"Oschenberg b. Bayreuth, Bayern",lat:49.9773,lon:11.6627,cats:["rifle"],price:"",src:true,srcNote:"300 m (über InnTAKT-Karte)"},
+ {n:"Kreisjägerschaft Minden-Lübbecke (Wittloge)",c:"DE",city:"Wittloge, NRW",lat:52.3854,lon:8.7410,cats:["rifle"],price:"",src:true,srcNote:"300 m (über InnTAKT-Karte)",web:"http://www.kjs-minden-luebbecke.de"},
+ {n:"DEVA Schießanlage",c:"DE",city:"Berlin-Wannsee",lat:52.4157,lon:13.1755,cats:["rifle"],price:"",src:true,srcNote:"3× 300 m (über InnTAKT- & VESAB-Karte)",web:"https://www.deva-institut.de/deva-ueber-uns/berlin"},
+ {n:"Priv. SG Güstrow",c:"DE",city:"Güstrow, MV",lat:53.8101,lon:12.2400,cats:["rifle"],price:"",src:true,srcNote:"300 m (über InnTAKT-Karte)",web:"http://schiessplatz.de"},
+ {n:"Schützenclub Wernsdorf",c:"DE",city:"Wernsdorf, Brandenburg",lat:52.3745,lon:13.7204,cats:["rifle","pistol"],price:"",src:true,srcNote:"25–300 m (über InnTAKT-Karte)"},
+ {n:"BDMP-Schießanlage Trügleben",c:"DE",city:"Trügleben (Gotha), Thüringen",lat:50.9632,lon:10.6480,cats:["rifle","pistol"],price:"",src:true,srcNote:"25–300 m (über InnTAKT-Karte)",web:"http://www.bdmp-lvth.de"},
+ {n:"SG der Stadt Konstanz 1438",c:"DE",city:"Konstanz, BW",lat:47.7066,lon:9.1344,cats:["rifle","pistol"],price:"",src:true,srcNote:"10–300 m (über InnTAKT-Karte)"},
+ {n:"Bürgerschützencorps Naumburg",c:"DE",city:"Naumburg, Sachsen-Anhalt",lat:51.1857,lon:11.8239,cats:["rifle"],price:"",src:true,srcNote:"bis 300 m (über InnTAKT-Karte)",web:"http://www.buergerschuetzencorps-naumburg.de"},
+ {n:"Schützenverein Wipperdorf",c:"DE",city:"Wipperdorf, Thüringen",lat:51.4477,lon:10.6382,cats:["rifle"],price:"",src:true,srcNote:"bis 300 m (über InnTAKT-Karte)",web:"http://www.schuetzenverein-wipperdorf.de"},
+ {n:"SLG Boostedt 300",c:"DE",city:"Boostedt, SH",lat:54.0360,lon:10.0178,cats:["rifle"],price:"",src:true,srcNote:"bis 300 m (über InnTAKT-Karte)",web:"http://www.slgboostedt300.de"},
+ {n:"SC Roßlau",c:"DE",city:"Roßlau (Dessau), Sachsen-Anhalt",lat:51.9126,lon:12.2990,cats:["rifle"],price:"",src:true,srcNote:"bis 300 m (über InnTAKT-Karte)",web:"http://www.slg-rosslau.de"},
+ {n:"Schießanlage Königswartha",c:"DE",city:"Königswartha, Sachsen",lat:51.3112,lon:14.3071,cats:["rifle"],price:"",src:true,srcNote:"bis 300 m (über InnTAKT-Karte)",web:"http://www.schiessanlage-koenigswartha.de"},
+ {n:"SG Hohenhorn (Großkaliber)",c:"DE",city:"Hohenhorn, SH",lat:53.4727,lon:10.3904,cats:["rifle"],price:"",src:true,srcNote:"300 m Großkaliber (über InnTAKT-Karte)",web:"http://www.sg-hohenhorn.de"},
+
+ {n:"Heeressportverein Wels",c:"AT",city:"Wels, OÖ",lat:48.1766,lon:14.0359,cats:["long","rifle"],price:"",src:true,srcNote:"bis 1000 m (über InnTAKT-Karte)",web:"http://www.schiessen-hsv-wels.com"},
+ {n:"Schützen- und Jägerverein Unken",c:"AT",city:"Unken, Salzburg",lat:47.6359,lon:12.7264,cats:["rifle"],price:"",src:true,srcNote:"300 m (über InnTAKT-Karte)",web:"http://www.schiessstand-unken.at"},
+ {n:"Schießstätte Zangtal",c:"AT",city:"Zangtal (Voitsberg), Steiermark",lat:47.0541,lon:15.1585,cats:["rifle"],price:"",src:true,srcNote:"bis 300 m (über InnTAKT-Karte)",web:"https://www.siegert.at/wp/de-zangtal/"},
+
+ {n:"ZVI Schießstand Vsetín",c:"CZ",city:"Vsetín",lat:49.1771,lon:18.1263,cats:["long","rifle"],price:"",src:true,srcNote:"bis 2000 m (über InnTAKT-Karte)",web:"http://www.zvi.cz/en/products/shooting-range.html"},
+
+ {n:"Long Shot",c:"PL",city:"Lubuskie b. Zielona Góra",lat:52.4140,lon:15.1831,cats:["long","rifle"],price:"",src:true,srcNote:"bis 1000 m; zwei Stände (über InnTAKT-Karte)",web:"http://www.longshot.pl"},
+
+ /* --- Erweiterung 5: Abgleich mit VESAB „Long Range Shooting & Matches" (Google-My-Maps), Nov 2026. Nur DE/PL/CZ/AT. --- */
+ {n:"Strzelnica Długodystansowa VIS",orig:"Strzelnica VIS",c:"PL",city:"b. Bydgoszcz, Kujawien-Pommern",lat:53.3841,lon:16.4119,cats:["long","rifle"],price:"",src:true,srcNote:"Long Range > 500 m (über VESAB-Karte)",web:"http://long-shooting.com/de/start-3/"},
+ {n:"Strzelnica Cassul",c:"PL",city:"Masowien/Heiligkreuz",lat:51.1064,lon:20.9231,cats:["long","rifle"],price:"",src:true,srcNote:"Long Range > 500 m (über VESAB-Karte)",web:"https://longrangeshooting.pl"},
+ {n:"Strzelnica Wiechlice",c:"PL",city:"Wiechlice (Szprotawa), Lebus",lat:51.5621,lon:15.6094,cats:["long","rifle"],price:"",src:true,srcNote:"Long Range > 500 m (über VESAB-Karte)"},
+ {n:"MOA Culpa Range",c:"PL",city:"Ermland-Masuren",lat:53.6914,lon:19.9972,cats:["long","rifle"],price:"",src:true,srcNote:"PRS-/Long-Range-Range (über VESAB-Karte)"},
+ {n:"STRIX Podwórze Koguta Range",c:"PL",city:"Pommern b. Danzig",lat:54.6103,lon:18.0330,cats:["long","rifle"],price:"",src:true,srcNote:"PRS-/Long-Range-Range (über VESAB-Karte)"},
+ {n:"Schießplatz Ramsau/Mölln",c:"AT",city:"Mölln b. Steyr, OÖ",lat:47.8097,lon:14.2616,cats:["long","rifle"],price:"",src:true,srcNote:"Long Range > 500 m; HSV Wels / HUAK Steyr (über VESAB-Karte)",web:"https://www.schiessen-hsv-wels.com"},
+ {n:"ATSE Long Range Allentsteig",c:"AT",city:"Allentsteig, NÖ",lat:48.6415,lon:15.4170,cats:["long","rifle"],price:"",src:true,srcNote:"Long Range > 500 m (über VESAB-Karte)",web:"https://atse.fun/"},
+ {n:"Weimarer Schützengilde",c:"DE",city:"Weimar, Thüringen",lat:51.0134,lon:11.3069,cats:["rifle"],price:"",src:true,srcNote:"300 m (über VESAB-Karte)",web:"https://weimarerschuetzengilde.de/"},
+ {n:"Schießstand am Kahnberg",c:"DE",city:"Kahnberg, Sachsen-Anhalt",lat:52.5540,lon:11.3415,cats:["rifle"],price:"",src:true,srcNote:"300 m (über VESAB-Karte)",web:"http://www.schiessplatz-am-kahnberg.de"},
+ {n:"Rosentaler Schützenverein Ferlach",c:"AT",city:"Ferlach, Kärnten",lat:46.5307,lon:14.2939,cats:["rifle"],price:"",src:true,srcNote:"300 m (über VESAB-Karte)",web:"https://rsvferlach.webnode.at/schiesssport/"},
+ {n:"Schützengilde Kemberg 1735",c:"DE",city:"Kemberg (Oppin), Sachsen-Anhalt",lat:51.7258,lon:12.6094,cats:["rifle"],price:"",src:true,srcNote:"300-m-Freiluftstand (über VESAB-Karte)",web:"https://sgi-kemberg.de"},
+ {n:"Střelnice Ludvíkovice",orig:"Střelnice Ludvíkovice",c:"CZ",city:"Ludvíkovice b. Děčín",lat:50.8043,lon:14.2778,cats:["rifle"],price:"",src:true,srcNote:"300 m (über VESAB-Karte)",web:"https://www.strelniceludvikovice.cz/"},
+ {n:"Schießsportzentrum Kasseedorf",c:"DE",city:"Kasseedorf, SH",lat:54.1581,lon:10.6675,cats:["rifle"],price:"",src:true,srcNote:"270 m (über VESAB-Karte)",web:"https://www.ssz-kasseedorf.de"},
+ {n:"Schießsportclub Neiden 1997",c:"DE",city:"Neiden, Sachsen",lat:51.5850,lon:12.9176,cats:["rifle"],price:"",src:true,srcNote:"300 m (über VESAB-Karte)",web:"https://sportschiessen-neiden.de"},
+ {n:"Schützengilde Sonnewalde 90",c:"DE",city:"Sonnewalde, Brandenburg",lat:51.7282,lon:13.6728,cats:["rifle"],price:"",src:true,srcNote:"300 m (über VESAB-Karte)",web:"http://www.schuetzengilde-sowa.de"},
+
+ /* --- Erweiterung 6: IPSC / dynamisches Schießen (Deep Search DE/PL/CZ/AT, Nov 2026) --- */
+ {n:"VPS Neu-Ulm (SV Breitenthal)",c:"DE",city:"Breitenthal, Bayern",lat:48.263,lon:10.372,cats:["ipsc","pistol","rifle"],price:"",src:true,srcNote:"IPSC-Verein (BDS); Training am Schießstand SV Breitenthal; BDS-Mitgliedschaft + Sicherheitstest (SuRT) nötig",web:"https://www.vps-nu.de/",courses:1},
+ {n:"Kochambron Kraków",c:"PL",city:"Kraków (Golikówka)",lat:50.028,lon:20.000,cats:["ipsc","pistol"],price:"",src:true,srcNote:"IPSC-/dynamisches Training; ul. Golikówka 12N",web:"https://kochambron.pl",courses:1},
+ {n:"Legia Warszawa – Sekcja Strzelecka",c:"PL",city:"Warschau",lat:52.2275,lon:21.0385,cats:["ipsc","pistol"],price:"",src:true,srcNote:"IPSC-Training (Di 19–21); ul. Łazienkowska 3",web:"https://strzelectwo-legia.pl"},
+ {n:"Strzelnica Kryta IPSC Ząbkowice",c:"PL",city:"Ząbkowice Śląskie, Niederschlesien",lat:50.590,lon:16.812,cats:["ipsc","pistol"],price:"",src:true,srcNote:"Indoor-IPSC-Stand",indoor:1},
+ {n:"IPSC Academy (Střelnice Brod)",c:"CZ",city:"Brod b. Příbram",lat:49.709,lon:14.055,cats:["ipsc","pistol"],price:"",src:true,srcNote:"eigene IPSC-Strelnice Brod 44, ~40 Min ab Prag-Smíchov",web:"https://www.ipsc-academy.com/",courses:1},
+ {n:"Střelnice Oblekovice",orig:"Střelnice Oblekovice",c:"CZ",city:"Oblekovice (Znojmo)",lat:48.835,lon:16.085,cats:["ipsc","pistol","rifle"],price:"",src:true,srcNote:"IPSC-Wettkämpfe (ASDS-Kalender)"},
+ {n:"Shooting Range Nord",c:"AT",city:"Stetten, NÖ (b. Wien)",lat:48.371,lon:16.527,cats:["ipsc","pistol"],price:"",src:true,srcNote:"dynamisches Schießen / PPS nach IPSC-Regelwerk; Kurse",web:"https://shootingrangenord.at",courses:1,guest:1,indoor:1},
+ {n:"FOCUS Jagd- & Schießsportzentrum",c:"AT",city:"Traiskirchen, NÖ",lat:48.012,lon:16.293,cats:["ipsc","pistol"],price:"",src:true,srcNote:"9 Bahnen bis 25 m; IPSC-Kurse & Bewerbe; Waffenhandel",web:"https://www.focusrange.at/",courses:1,guest:1,indoor:1},
+ {n:"HSV Wien Schießen (Stammersdorf)",c:"AT",city:"Wien-Stammersdorf",lat:48.293,lon:16.414,cats:["ipsc","pistol"],price:"",src:true,srcNote:"IPSC-Grundlagen, Training & Bewerbe (teils für Gäste)",web:"https://schiessen.hsv-wien.at"}
+];
+
+/* ---------- Metadaten ---------- */
+var COUNTRYMETA={
+ DE:{name:"Deutschland",flag:"🇩🇪",price:"Wurfscheibe ~6–16 €/Runde (25 Scheiben). 300 m+ selten, meist über Vereine."},
+ PL:{name:"Polen",flag:"🇵🇱",price:"Freizeitschießen ab ~20 zł / 30 min (~5 €). Gute Long-Range-Optionen, Preise auf Anfrage."},
+ CZ:{name:"Tschechien",flag:"🇨🇿",price:"Pakete ab ~499 Kč (~20 €); Wurfscheiben-Munition ~14 Kč/Stück."},
+ AT:{name:"Österreich",flag:"🇦🇹",price:"Trap/Skeet-Runde ~6,50–8,50 €. Zivile Long-Range-Stände kaum verfügbar."}
+};
+var CATMETA={
+ trap:{lbl:"Trap",grp:"clay"},skeet:{lbl:"Skeet",grp:"clay"},parcours:{lbl:"Parcours",grp:"clay"},
+ long:{lbl:"Long Range",grp:"long"},rifle:{lbl:"Büchse",grp:"rifle"},pistol:{lbl:"Kurzwaffe",grp:"pistol"},
+ ipsc:{lbl:"IPSC",grp:"ipsc"}
+};
+var GRPMETA={clay:{lbl:"Tontauben",varc:"--clay"},long:{lbl:"Long Range",varc:"--long"},rifle:{lbl:"Büchse/Gewehr",varc:"--rifle"},pistol:{lbl:"Kurzwaffe",varc:"--pistol"},ipsc:{lbl:"IPSC (dynamisch)",varc:"--ipsc"}};
+var GRP_ORDER=["clay","long","ipsc","rifle","pistol"];
+var SVC={guest:"Gastschützen",rental:"Leihwaffe",courses:"Einsteigerkurse",indoor:"Indoor"};
+
+/* ---------- Helpers ---------- */
+function groupsOf(r){var s={};r.cats.forEach(function(c){s[CATMETA[c].grp]=1;});return Object.keys(s);}
+function primaryGroup(r){var g=groupsOf(r);for(var i=0;i<GRP_ORDER.length;i++){if(g.indexOf(GRP_ORDER[i])>=0)return GRP_ORDER[i];}return "rifle";}
+function colorOf(r){return "var("+GRPMETA[primaryGroup(r)].varc+")";}
+function mapsUrl(r){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent((r.orig||r.n)+", "+r.city+", "+COUNTRYMETA[r.c].name);}
+function dist(a,b){var t=Math.PI/180,dLa=(b.lat-a.lat)*t,dLo=(b.lon-a.lon)*t,la1=a.lat*t,la2=b.lat*t;var h=Math.sin(dLa/2)*Math.sin(dLa/2)+Math.cos(la1)*Math.cos(la2)*Math.sin(dLo/2)*Math.sin(dLo/2);return 6371*2*Math.asin(Math.sqrt(h));}
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+/* ---------- State ---------- */
+var FAV=load("sb_fav",{}), CUSTOM=load("sb_custom",[]), OVERRIDES=load("sb_overrides",{}), DELETED=load("sb_deleted",{}), NOTES=load("sb_notes",{});
+var activeC={DE:1,PL:1,CZ:1,AT:1}, activeG={clay:1,long:1,ipsc:1,rifle:1,pistol:1}, activeS={guest:0,rental:0,courses:0,indoor:0};
+var qStr="", favOnly=false, selId=null, hoverId=null, userLoc=null, radius=1525, mapMode=null, editId=null, pendingDelete=null;
+function getNotes(id){return NOTES[id]||"";}
+var ALL=[];
+RANGES.forEach(function(r,i){r.id="r"+i;});
+CUSTOM.forEach(function(r,i){r.id=r.id||("c"+i);r.custom=true;});
+function rebuildAll(){
+  ALL=[];
+  RANGES.forEach(function(base){
+    if(DELETED[base.id])return;
+    var o=OVERRIDES[base.id];
+    ALL.push(o?Object.assign({},base,o):base);
+  });
+  CUSTOM.forEach(function(r){r.custom=true;ALL.push(r);});
+  ALL.forEach(function(r){r.X=px(r.lon);r.Y=py(r.lat);});
+}
+rebuildAll();
+function byId(id){for(var i=0;i<ALL.length;i++)if(ALL[i].id===id)return ALL[i];}
+
+/* ---------- Karte zeichnen ---------- */
+var SVG=document.getElementById("map");
+SVG.setAttribute("viewBox","0 0 "+W+" "+H);
+var gLand=document.getElementById("gLand"),gRoads=document.getElementById("gRoads"),gCity=document.getElementById("gCity"),gPins=document.getElementById("gPins");
+var locMark=document.getElementById("locMark"),pickMark=document.getElementById("pickMark");
+var NS="http://www.w3.org/2000/svg";
+function path(coords){var d="";coords.forEach(function(p,i){d+=(i?"L":"M")+px(p[0]).toFixed(1)+" "+py(p[1]).toFixed(1)+" ";});return d+"Z";}
+function polyline(coords){var d="";coords.forEach(function(p,i){d+=(i?"L":"M")+px(p[0]).toFixed(1)+" "+py(p[1]).toFixed(1)+" ";});return d;}
+
+var landEls={};
+Object.keys(COUNTRIES).forEach(function(code){
+  var el=document.createElementNS(NS,"path");el.setAttribute("d",path(COUNTRIES[code]));el.setAttribute("class","land");el.dataset.c=code;
+  gLand.appendChild(el);landEls[code]=el;
+});
+var roadEls=[];
+ROADS.forEach(function(rd){var el=document.createElementNS(NS,"path");el.setAttribute("d",polyline(rd));el.setAttribute("class","road");gRoads.appendChild(el);roadEls.push(el);});
+var cityDots=[],cityTxts=[];
+CITIES.forEach(function(ct){
+  var x=px(ct[1]),y=py(ct[2]);
+  var d=document.createElementNS(NS,"circle");d.setAttribute("cx",x);d.setAttribute("cy",y);d.setAttribute("class","cityDot");gCity.appendChild(d);cityDots.push(d);
+  var t=document.createElementNS(NS,"text");t.setAttribute("x",x+5);t.setAttribute("y",y+3);t.setAttribute("class","cityTxt");t.textContent=ct[0];gCity.appendChild(t);cityTxts.push(t);
+});
+
+var pinEls={};
+function buildPins(){
+  gPins.innerHTML="";pinEls={};
+  ALL.forEach(function(r){
+    var g=document.createElementNS(NS,"g");g.setAttribute("class","pin"+(r.custom?" custom":""));g.dataset.id=r.id;g.setAttribute("tabindex","0");
+    g.setAttribute("role","button");g.setAttribute("aria-label",r.n+", "+r.city);
+    var halo=document.createElementNS(NS,"circle");halo.setAttribute("class","halo");halo.setAttribute("cx",r.X);halo.setAttribute("cy",r.Y);
+    var ring=document.createElementNS(NS,"circle");ring.setAttribute("class","ring");ring.setAttribute("cx",r.X);ring.setAttribute("cy",r.Y);
+    var body=document.createElementNS(NS,"circle");body.setAttribute("class","body");body.setAttribute("cx",r.X);body.setAttribute("cy",r.Y);body.setAttribute("fill",colorOf(r));
+    g.appendChild(halo);g.appendChild(ring);g.appendChild(body);gPins.appendChild(g);pinEls[r.id]=g;
+  });
+  applyView();
+}
+
+/* ---------- View / Zoom / Pan ---------- */
+var vb={x:0,y:0,w:W,h:H};
+function applyView(){
+  SVG.setAttribute("viewBox",vb.x+" "+vb.y+" "+vb.w+" "+vb.h);
+  var cw=SVG.clientWidth||700, s=vb.w/cw;
+  ALL.forEach(function(r){
+    var g=pinEls[r.id];if(!g)return;
+    g.querySelector(".body").setAttribute("r",7*s);g.querySelector(".body").setAttribute("stroke-width",2*s);
+    g.querySelector(".ring").setAttribute("r",10*s);g.querySelector(".ring").setAttribute("stroke-width",2*s);
+    g.querySelector(".halo").setAttribute("r",12.5*s);g.querySelector(".halo").setAttribute("stroke-width",2*s);
+  });
+  roadEls.forEach(function(el){el.setAttribute("stroke-width",1.4*s);});
+  cityDots.forEach(function(d){d.setAttribute("r",2.6*s);});
+  cityTxts.forEach(function(t){t.setAttribute("font-size",(11*s)+"px");});
+  if(userLoc){locMark.querySelector(".lo").setAttribute("r",5.5*s);locMark.querySelector(".lo").setAttribute("stroke-width",2*s);
+    locMark.querySelector(".lr").setAttribute("r",10*s);locMark.querySelector(".lr").setAttribute("stroke-width",2*s);}
+  if(!pickMark.hidden){pickMark.querySelector("circle").setAttribute("r",6*s);pickMark.querySelector("circle").setAttribute("stroke-width",2*s);}
+}
+function clampVB(){
+  vb.w=Math.max(W/7,Math.min(W,vb.w));vb.h=vb.w/R;
+  vb.x=Math.max(-W*0.03,Math.min(W-vb.w+W*0.03,vb.x));
+  vb.y=Math.max(-H*0.03,Math.min(H-vb.h+H*0.03,vb.y));
+}
+function setBox(minx,miny,maxx,maxy,pad){
+  pad=pad||0.12;var w=maxx-minx,h=maxy-miny,cx=(minx+maxx)/2,cy=(miny+maxy)/2;
+  w*=(1+pad);h*=(1+pad);if(w/h>R)h=w/R;else w=h*R;
+  vb.w=w;vb.h=h;vb.x=cx-w/2;vb.y=cy-h/2;clampVB();applyView();
+}
+function fitAll(){vb={x:-10,y:-10,w:W+20,h:(W+20)/R};clampVB();applyView();}
+function bboxCountry(code){var a=COUNTRIES[code],mnx=1e9,mny=1e9,mxx=-1e9,mxy=-1e9;a.forEach(function(p){var x=px(p[0]),y=py(p[1]);mnx=Math.min(mnx,x);mxx=Math.max(mxx,x);mny=Math.min(mny,y);mxy=Math.max(mxy,y);});return [mnx,mny,mxx,mxy];}
+function zoom(f,cx,cy){
+  cx=cx==null?vb.x+vb.w/2:cx;cy=cy==null?vb.y+vb.h/2:cy;
+  var nw=vb.w/f;nw=Math.max(W/7,Math.min(W,nw));var k=nw/vb.w;
+  vb.x=cx-(cx-vb.x)*k;vb.y=cy-(cy-vb.y)*k;vb.w=nw;vb.h=nw/R;clampVB();applyView();
+}
+function client2user(clientX,clientY){var r=SVG.getBoundingClientRect();return {x:vb.x+(clientX-r.left)/r.width*vb.w,y:vb.y+(clientY-r.top)/r.height*vb.h};}
+SVG.addEventListener("wheel",function(e){e.preventDefault();var pt=client2user(e.clientX,e.clientY);zoom(e.deltaY<0?1.2:1/1.2,pt.x,pt.y);},{passive:false});
+var drag=null,wasMoved=false;
+SVG.addEventListener("pointerdown",function(e){if(mapMode)return;drag={sx:e.clientX,sy:e.clientY,vx:vb.x,vy:vb.y,moved:false};SVG.setPointerCapture(e.pointerId);SVG.classList.add("grabbing");});
+SVG.addEventListener("pointermove",function(e){
+  if(drag){var r=SVG.getBoundingClientRect(),dx=(e.clientX-drag.sx)/r.width*vb.w,dy=(e.clientY-drag.sy)/r.height*vb.h;
+    if(Math.abs(e.clientX-drag.sx)+Math.abs(e.clientY-drag.sy)>4)drag.moved=true;
+    vb.x=drag.vx-dx;vb.y=drag.vy-dy;clampVB();applyView();}
+});
+function endDrag(e){if(drag){wasMoved=drag.moved;try{SVG.releasePointerCapture(e.pointerId);}catch(_){}}drag=null;SVG.classList.remove("grabbing");}
+SVG.addEventListener("pointerup",endDrag);SVG.addEventListener("pointercancel",endDrag);
+SVG.addEventListener("click",function(e){
+  if(!mapMode)return;
+  var pt=client2user(e.clientX,e.clientY),ll=user2lonlat(pt.x,pt.y);
+  if(mapMode==="loc"){setUserLoc(ll.lat,ll.lon);setMapMode(null);}
+  else if(mapMode==="pin"){document.getElementById("fLat").value=ll.lat.toFixed(4);document.getElementById("fLon").value=ll.lon.toFixed(4);showPick(ll.lat,ll.lon);setMapMode(null);}
+});
+document.getElementById("zin").onclick=function(){zoom(1.4);};
+document.getElementById("zout").onclick=function(){zoom(1/1.4);};
+document.getElementById("zreset").onclick=function(){fitAll();};
+
+/* ---------- Standort / Umkreis ---------- */
+function setMapMode(m){mapMode=m;SVG.classList.toggle("picking",!!m);document.getElementById("pickHint").hidden=(m!=="pin");}
+function setUserLoc(lat,lon){
+  userLoc={lat:lat,lon:lon};
+  locMark.hidden=false;var x=px(lon),y=py(lat);
+  locMark.querySelector(".lo").setAttribute("cx",x);locMark.querySelector(".lo").setAttribute("cy",y);
+  locMark.querySelector(".lr").setAttribute("cx",x);locMark.querySelector(".lr").setAttribute("cy",y);
+  document.getElementById("locbar").classList.add("on");
+  document.getElementById("locTxt").textContent="Standort gesetzt ("+lat.toFixed(2)+", "+lon.toFixed(2)+")";
+  applyView();render();
+}
+document.getElementById("locBtn").onclick=function(){
+  if(userLoc){document.getElementById("locbar").classList.toggle("on");}
+  else{setMapMode("loc");}
+};
+document.getElementById("locClear").onclick=function(){userLoc=null;radius=1525;document.getElementById("radius").value=1525;document.getElementById("radiusLbl").textContent="∞";locMark.hidden=true;document.getElementById("locbar").classList.remove("on");render();};
+document.getElementById("radius").addEventListener("input",function(e){radius=+e.target.value;document.getElementById("radiusLbl").textContent=(radius>=1525?"∞":radius+" km");render();});
+
+function showPick(lat,lon){pickMark.hidden=false;var x=px(lon),y=py(lat);pickMark.querySelector("circle").setAttribute("cx",x);pickMark.querySelector("circle").setAttribute("cy",y);applyView();}
+
+/* ---------- Tooltip ---------- */
+var tip=document.getElementById("tip"),panel=document.querySelector(".mappanel");
+var tipId=null;
+function domainOf(u){return String(u||"").replace(/^https?:\/\//,"").replace(/^www\./,"").split(/[\/?#]/)[0];}
+function showTip(r,clientX,clientY){
+  if(tipId!==r.id){
+    tipId=r.id;
+    tip.innerHTML='<span class="tipflag">'+COUNTRYMETA[r.c].flag+'</span><b>'+esc(r.n)+'</b>'+
+      '<span class="sub">'+esc(r.city)+'</span><div class="tipbadges">'+r.cats.map(badge).join("")+'</div>'+
+      (r.web?'<span class="tiplink">🔗 '+esc(domainOf(r.web))+'</span>':'');
+  }
+  positionTip(clientX,clientY);
+  tip.classList.add("on");
+}
+function positionTip(clientX,clientY){
+  var pr=panel.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight;
+  var tx=clientX-pr.left+14,ty=clientY-pr.top+14;
+  if(tx+tw>pr.width-6)tx=clientX-pr.left-tw-14;
+  if(tx<6)tx=6;
+  if(ty+th>pr.height-6)ty=clientY-pr.top-th-14;
+  if(ty<6)ty=6;
+  tip.style.left=tx+"px";tip.style.top=ty+"px";
+}
+function hideTip(){tip.classList.remove("on");tipId=null;}
+function syncSel(){ALL.forEach(function(r){var g=pinEls[r.id];if(g)g.classList.toggle("sel",r.id===selId);});var cs=listEl.querySelectorAll(".card");for(var i=0;i<cs.length;i++)cs[i].classList.toggle("sel",cs[i].dataset.id===selId);}
+function activate(id){if(selId===id)return;selId=id;renderDetail();syncSel();}
+/* Auswahl per Klick (öffnet Infofenster). Hover zeigt nur ein Vorschau-Kärtchen über der Karte. */
+gPins.addEventListener("focusin",function(e){var g=e.target.closest(".pin");if(g)activate(g.dataset.id);});
+gPins.addEventListener("click",function(e){if(mapMode)return;var g=e.target.closest(".pin");if(g&&(!drag||!wasMoved)){select(g.dataset.id,false);}});
+gPins.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){var g=e.target.closest(".pin");if(g){e.preventDefault();select(g.dataset.id,true);}}});
+/* Hover-Vorschau (nur Maus) */
+gPins.addEventListener("pointerover",function(e){
+  if(e.pointerType&&e.pointerType!=="mouse")return;
+  if(mapMode||drag)return;
+  var g=e.target.closest(".pin");if(!g)return;
+  var r=byId(g.dataset.id);if(r)showTip(r,e.clientX,e.clientY);
+});
+gPins.addEventListener("pointermove",function(e){
+  if(!tip.classList.contains("on"))return;
+  if(e.pointerType&&e.pointerType!=="mouse")return;
+  if(mapMode||drag){hideTip();return;}
+  var g=e.target.closest(".pin");
+  if(g){var r=byId(g.dataset.id);if(r)showTip(r,e.clientX,e.clientY);}
+  else hideTip();
+});
+gPins.addEventListener("pointerout",function(e){
+  var g=e.target.closest(".pin");if(!g)return;
+  if(e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest(".pin"))return;
+  hideTip();
+});
+
+/* ---------- Liste + Filter ---------- */
+var listEl=document.getElementById("list"),countEl=document.getElementById("count");
+function visible(r){
+  if(!activeC[r.c])return false;
+  var g=groupsOf(r),ok=false;g.forEach(function(x){if(activeG[x])ok=true;});if(!ok)return false;
+  if(favOnly&&!FAV[r.id])return false;
+  var sk=Object.keys(activeS);for(var i=0;i<sk.length;i++){if(activeS[sk[i]]&&!r[sk[i]])return false;}
+  if(userLoc&&radius<1525&&r._d>radius)return false;
+  if(qStr){var h=(r.n+" "+(r.orig||"")+" "+r.city+" "+r.cats.map(function(c){return CATMETA[c]?CATMETA[c].lbl:"";}).join(" ")).toLowerCase();if(h.indexOf(qStr)<0)return false;}
+  return true;
+}
+function badge(cat){var m=CATMETA[cat],col="var("+GRPMETA[m.grp].varc+")";
+  return '<span class="badge" style="color:'+col+';border-color:'+col+'"><span class="d" style="background:'+col+'"></span>'+m.lbl+'</span>';}
+function cardHTML(r){
+  var cm=COUNTRYMETA[r.c];
+  var priceTxt=r.price?esc(r.price):("Orientierung "+cm.name+": "+esc(cm.price));
+  var priceSrc=r.src?'<div class="src">✓ Beleg'+(r.srcNote?": "+esc(r.srcNote):"")+'</div>':(r.srcNote?'<div class="src">Hinweis: '+esc(r.srcNote)+'</div>':(r.price?'':'<div class="src">Preis vor Ort / auf Anfrage prüfen</div>'));
+  var flags="";
+  if(r.guest)flags+='<span class="flagpill guest">✓ Gastschützen</span>';
+  if(r.rental)flags+='<span class="flagpill">Leihwaffe</span>';
+  if(r.courses)flags+='<span class="flagpill">Einsteigerkurse</span>';
+  if(r.indoor)flags+='<span class="flagpill">Indoor</span>';
+  var web=r.web?'<a class="primary" href="'+esc(r.web)+'" target="_blank" rel="noopener">Website ↗</a>':'';
+  var delCtl=(pendingDelete===r.id)
+    ? '<span class="confirm">Löschen? <button type="button" data-yes="'+r.id+'">Ja</button><button type="button" data-no="1">Nein</button></span>'
+    : '<button class="del" data-del="'+r.id+'" type="button">Löschen</button>';
+  var dist=(userLoc&&r._d!=null)?'<span class="dist">'+(r._d<10?r._d.toFixed(1):Math.round(r._d))+' km</span>':'';
+  var orig=r.orig?'<span class="orig">'+esc(r.orig)+'</span>':'';
+  var tag=r.custom?' · eigene Bahn':(OVERRIDES[r.id]?' · bearbeitet':'');
+  return '<div class="card'+(r.id===selId?' sel':'')+(r.custom?' own':'')+'" data-id="'+r.id+'" tabindex="0">'+
+    '<div class="top"><span class="flag">'+cm.flag+'</span><h3>'+esc(r.n)+orig+'</h3>'+dist+
+      '<button class="star'+(FAV[r.id]?' on':'')+'" data-star="'+r.id+'" title="Favorit" aria-label="Favorit">'+(FAV[r.id]?"★":"☆")+'</button></div>'+
+    '<div class="loc">'+esc(r.city)+tag+'</div>'+
+    '<div class="badges">'+r.cats.map(badge).join("")+'</div>'+
+    '<div class="price'+(r.src?' sourced':'')+'">'+priceTxt+priceSrc+'</div>'+
+    (getNotes(r.id)?'<div class="noteflag">📝 '+esc(getNotes(r.id).slice(0,70))+(getNotes(r.id).length>70?'…':'')+'</div>':'')+
+    (flags?'<div class="flags">'+flags+'</div>':'')+
+    '<div class="links">'+web+'<a href="'+mapsUrl(r)+'" target="_blank" rel="noopener">In Google Maps ↗</a>'+
+      '<button class="edit" data-edit="'+r.id+'" type="button">Bearbeiten</button>'+delCtl+'</div>'+
+  '</div>';
+}
+function render(){
+  if(userLoc)ALL.forEach(function(r){r._d=dist(userLoc,{lat:r.lat,lon:r.lon});});
+  var vis=ALL.filter(visible);
+  if(userLoc)vis.sort(function(a,b){return a._d-b._d;});
+  var svcActive=Object.keys(activeS).filter(function(k){return activeS[k];}).map(function(k){return SVC[k];});
+  countEl.innerHTML="<b>"+vis.length+"</b> von "+ALL.length+" Anlagen"+(favOnly?" · Favoriten":"")+(svcActive.length?" · "+svcActive.join(", "):"")+(userLoc?" · nach Entfernung":"");
+  listEl.innerHTML=vis.length?vis.map(cardHTML).join(""):'<div class="empty">Keine Anlage passt zu den Filtern.<br>Filter zurücksetzen oder Suche leeren.</div>';
+  ALL.forEach(function(r){
+    var g=pinEls[r.id];if(!g)return;
+    if(visible(r))g.removeAttribute("hidden");else g.setAttribute("hidden","hidden");
+    g.classList.toggle("fav",!!FAV[r.id]);g.classList.toggle("sel",r.id===selId);
+  });
+  Object.keys(landEls).forEach(function(code){landEls[code].classList.toggle("dim",!activeC[code]);});
+  updateChipCounts();updateResetBtn();renderDetail();
+}
+/* Info-Fenster unter der Karte: zeigt alle Daten der angefahrenen/angeklickten Anlage + Freitext */
+function renderDetail(){
+  var id=selId, box=document.getElementById("detail"), r=id?byId(id):null;
+  if(!r){box.innerHTML='<div class="detail-empty">Fahre über einen Punkt auf der Karte oder klick ihn an — hier erscheinen alle Infos zur Anlage und ein Freitext-Feld für deine Notizen, Preise &amp; Erfahrungen.</div>';return;}
+  var cm=COUNTRYMETA[r.c];
+  var priceTxt=r.price?esc(r.price):("Orientierung "+cm.name+": "+esc(cm.price));
+  var priceSrc=r.src?'<div class="src">✓ Beleg'+(r.srcNote?": "+esc(r.srcNote):"")+'</div>':(r.srcNote?'<div class="src">Hinweis: '+esc(r.srcNote)+'</div>':(r.price?'':'<div class="src">Preis vor Ort / auf Anfrage prüfen</div>'));
+  var flags="";
+  if(r.guest)flags+='<span class="flagpill guest">✓ Gastschützen</span>';
+  if(r.rental)flags+='<span class="flagpill">Leihwaffe</span>';
+  if(r.courses)flags+='<span class="flagpill">Einsteigerkurse</span>';
+  if(r.indoor)flags+='<span class="flagpill">Indoor</span>';
+  var web=r.web?'<a class="primary" href="'+esc(r.web)+'" target="_blank" rel="noopener">Website ↗</a>':'';
+  var delCtl=(pendingDelete===r.id)?'<span class="confirm">Löschen? <button type="button" data-yes="'+r.id+'">Ja</button><button type="button" data-no="1">Nein</button></span>':'<button class="del" data-del="'+r.id+'" type="button">Löschen</button>';
+  var dist=(userLoc&&r._d!=null)?'<span class="ddist">'+(r._d<10?r._d.toFixed(1):Math.round(r._d))+' km</span>':'';
+  var orig=r.orig?'<span class="orig">'+esc(r.orig)+'</span>':'';
+  var tag=r.custom?' · eigene Bahn':(OVERRIDES[r.id]?' · bearbeitet':'');
+  box.innerHTML=
+   '<div class="dhead"><span class="dflag">'+cm.flag+'</span><h2>'+esc(r.n)+orig+'</h2>'+dist+
+     '<button class="dstar'+(FAV[r.id]?' on':'')+'" data-star="'+r.id+'" aria-label="Favorit">'+(FAV[r.id]?"★":"☆")+'</button></div>'+
+   '<div class="dloc">'+esc(r.city)+tag+'</div>'+
+   '<div class="badges">'+r.cats.map(badge).join("")+'</div>'+
+   '<div class="price'+(r.src?' sourced':'')+'">'+priceTxt+priceSrc+'</div>'+
+   (flags?'<div class="flags">'+flags+'</div>':'')+
+   '<div class="links">'+web+'<a href="'+mapsUrl(r)+'" target="_blank" rel="noopener">In Google Maps ↗</a>'+
+     '<button class="edit" data-edit="'+r.id+'" type="button">Bearbeiten</button>'+delCtl+'</div>'+
+   '<div class="notesblock"><label for="detNotes">📝 Meine Notizen · Preise · Erfahrungen</label>'+
+     '<textarea id="detNotes" data-notes="'+r.id+'" placeholder="Frei eintragen – z.B. Preise vor Ort, Öffnungszeiten, wie war’s …">'+esc(getNotes(r.id))+'</textarea>'+
+     '<div class="hint">Wird automatisch in deinem Browser gespeichert.</div></div>';
+}
+function itemAction(e){
+  var t;
+  if((t=e.target.closest("[data-star]"))){e.stopPropagation();var id=t.dataset.star;FAV[id]=FAV[id]?0:1;if(!FAV[id])delete FAV[id];save("sb_fav",FAV);render();return true;}
+  if((t=e.target.closest("[data-edit]"))){e.stopPropagation();openEdit(t.dataset.edit);return true;}
+  if((t=e.target.closest("[data-del]"))){e.stopPropagation();pendingDelete=t.dataset.del;render();return true;}
+  if((t=e.target.closest("[data-yes]"))){e.stopPropagation();performDelete(t.dataset.yes);return true;}
+  if((t=e.target.closest("[data-no]"))){e.stopPropagation();pendingDelete=null;render();return true;}
+  return false;
+}
+(function(){
+  var box=document.getElementById("detail");
+  box.addEventListener("click",function(e){itemAction(e);});
+  box.addEventListener("input",function(e){var ta=e.target.closest("[data-notes]");if(!ta)return;var id=ta.dataset.notes;if(ta.value.trim())NOTES[id]=ta.value;else delete NOTES[id];save("sb_notes",NOTES);});
+})();
+function updateChipCounts(){
+  var byC={DE:0,PL:0,CZ:0,AT:0};ALL.forEach(function(r){if(r.c in byC)byC[r.c]++;});
+  Object.keys(byC).forEach(function(code){var el=document.querySelector('[data-cnt="'+code+'"]');if(el)el.textContent=byC[code];});
+}
+
+/* Chips bauen */
+var cRow=document.getElementById("countryRow"),catRow=document.getElementById("catRow"),svcRow=document.getElementById("svcRow");
+["DE","PL","CZ","AT"].forEach(function(code){
+  var b=document.createElement("button");b.className="chip";b.type="button";b.setAttribute("aria-pressed","true");b.dataset.country=code;
+  b.innerHTML=COUNTRYMETA[code].flag+" "+COUNTRYMETA[code].name+' <span class="cnt" data-cnt="'+code+'"></span>';
+  b.onclick=function(){activeC[code]=activeC[code]?0:1;b.setAttribute("aria-pressed",activeC[code]?"true":"false");
+    var on=Object.keys(activeC).filter(function(k){return activeC[k];});
+    if(on.length===1){var bb=bboxCountry(on[0]);setBox(bb[0],bb[1],bb[2],bb[3]);}else if(on.length===4){fitAll();}
+    render();};
+  cRow.appendChild(b);
+});
+GRP_ORDER.forEach(function(g){
+  var b=document.createElement("button");b.className="chip cat";b.type="button";b.setAttribute("aria-pressed","true");b.dataset.grp=g;
+  b.innerHTML='<span class="dot" style="background:var('+GRPMETA[g].varc+')"></span>'+GRPMETA[g].lbl;
+  /* Klick = nur diese Disziplin auf Karte & Liste zeigen; erneuter Klick (wenn schon allein aktiv) = alle zurück */
+  b.onclick=function(){
+    var act=GRP_ORDER.filter(function(x){return activeG[x];});
+    if(activeG[g]&&act.length===1)allGroups();
+    else setOnly(g);
+  };
+  catRow.appendChild(b);
+});
+var qAll=document.createElement("button");qAll.className="chip ghost";qAll.type="button";qAll.textContent="◎ Alle Disziplinen";qAll.onclick=allGroups;
+catRow.appendChild(qAll);
+function setOnly(grp){GRP_ORDER.forEach(function(g){activeG[g]=(g===grp)?1:0;});document.querySelectorAll("[data-grp]").forEach(function(el){el.setAttribute("aria-pressed",el.dataset.grp===grp?"true":"false");});render();}
+function allGroups(){GRP_ORDER.forEach(function(g){activeG[g]=1;});document.querySelectorAll("[data-grp]").forEach(function(el){el.setAttribute("aria-pressed","true");});render();}
+Object.keys(SVC).forEach(function(k){
+  var b=document.createElement("button");b.className="chip ghost";b.type="button";b.setAttribute("aria-pressed","false");b.dataset.svc=k;
+  b.textContent=SVC[k];
+  b.onclick=function(){activeS[k]=activeS[k]?0:1;b.setAttribute("aria-pressed",activeS[k]?"true":"false");b.classList.toggle("act",!!activeS[k]);render();};
+  svcRow.appendChild(b);
+});
+
+/* Suche + Favoriten */
+document.getElementById("q").addEventListener("input",function(e){qStr=e.target.value.trim().toLowerCase();render();});
+var favBtn=document.getElementById("favF");
+favBtn.onclick=function(){favOnly=!favOnly;favBtn.setAttribute("aria-pressed",favOnly?"true":"false");render();};
+
+/* Liste Interaktion */
+listEl.addEventListener("click",function(e){
+  if(itemAction(e))return;
+  if(e.target.closest("a"))return;
+  var card=e.target.closest(".card");if(card)select(card.dataset.id,true);
+});
+listEl.addEventListener("keydown",function(e){if(e.key==="Enter"){var card=e.target.closest(".card");if(card&&!e.target.closest("button")){select(card.dataset.id,true);}}});
+
+/* Auswahl */
+function select(id,center){
+  selId=id;var r=byId(id);
+  if(center&&r){if(vb.w>W*0.5){vb.w=W*0.38;vb.h=vb.w/R;}vb.x=r.X-vb.w/2;vb.y=r.Y-vb.h/2;clampVB();applyView();}
+  render();
+  var c=listEl.querySelector('.card[data-id="'+id+'"]');if(c)c.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+
+/* ---------- Eigene Bahn: Formular ---------- */
+var form=document.getElementById("form");
+document.getElementById("addBtn").onclick=function(){
+  var opening=!form.classList.contains("on");
+  if(opening){editId=null;document.getElementById("fTitle").textContent="➕ Eigene Bahn hinzufügen";clearForm();document.getElementById("fMsg").textContent="";var fm=document.getElementById("fetchMsg");fm.hidden=true;pickMark.hidden=true;}
+  document.getElementById("iopanel").classList.remove("on");
+  form.classList.toggle("on");
+  if(form.classList.contains("on"))document.getElementById("fName").focus();
+};
+document.getElementById("fCancel").onclick=function(){closeForm();};
+document.getElementById("fPick").onclick=function(){form.scrollIntoView({block:"nearest"});setMapMode("pin");};
+function closeForm(){form.classList.remove("on");setMapMode(null);pickMark.hidden=true;editId=null;document.getElementById("fTitle").textContent="➕ Eigene Bahn hinzufügen";document.getElementById("fMsg").textContent="";var fm=document.getElementById("fetchMsg");fm.hidden=true;fm.textContent="";clearForm();}
+function clearForm(){["fName","fCity","fWeb","fLat","fLon","fNotes"].forEach(function(id){document.getElementById(id).value="";});document.getElementById("fCountry").value="DE";form.querySelectorAll("#fCats input,#fSvc input").forEach(function(c){c.checked=false;});lastPreis="";}
+function openEdit(id){
+  var r=byId(id);if(!r)return;
+  editId=id;pendingDelete=null;
+  document.getElementById("fTitle").textContent="✎ Bahn bearbeiten";
+  document.getElementById("fName").value=r.n||"";
+  document.getElementById("fCity").value=(r.city&&r.city!=="—")?r.city:"";
+  document.getElementById("fCountry").value=r.c||"DE";
+  document.getElementById("fWeb").value=r.web||"";
+  document.getElementById("fLat").value=r.lat;document.getElementById("fLon").value=r.lon;
+  lastPreis=r.price||"";
+  document.getElementById("fNotes").value=getNotes(id);
+  form.querySelectorAll("#fCats input").forEach(function(c){c.checked=(r.cats||[]).indexOf(c.value)>=0;});
+  form.querySelectorAll("#fSvc input").forEach(function(c){c.checked=!!r[c.value];});
+  document.getElementById("fMsg").textContent="";var fm=document.getElementById("fetchMsg");fm.hidden=true;fm.textContent="";
+  showPick(r.lat,r.lon);
+  form.classList.add("on");render();form.scrollIntoView({block:"nearest"});document.getElementById("fName").focus();
+}
+function performDelete(id){
+  var isCustom=CUSTOM.some(function(r){return r.id===id;});
+  if(isCustom){CUSTOM=CUSTOM.filter(function(r){return r.id!==id;});save("sb_custom",CUSTOM);}
+  else{DELETED[id]=1;delete OVERRIDES[id];save("sb_deleted",DELETED);save("sb_overrides",OVERRIDES);}
+  pendingDelete=null;if(selId===id)selId=null;if(editId===id)closeForm();
+  rebuildAll();buildPins();render();
+}
+
+/* Auto-Ausfüllen vom Weblink: Browser liest Seite (mcp host:claude_browser) → Claude extrahiert (sample) */
+var lastPreis="";
+function extractText(res){
+  if(!res)return "";
+  if(typeof res.payload==="string")return res.payload;
+  if(res.payload&&typeof res.payload==="object"){try{return JSON.stringify(res.payload);}catch(e){}}
+  if(res.content&&res.content.length){var t="";res.content.forEach(function(b){if(b&&b.type==="text"&&b.text)t+=b.text+"\n";});return t;}
+  return "";
+}
+function buildPrompt(url,text){
+  var base="Du hilfst, einen Schießstand-Eintrag für eine Karte auszufüllen. Antworte AUSSCHLIESSLICH mit einem JSON-Objekt (keine Erklärung) mit genau diesen Feldern:\n"+
+   '{"name":string,"ort":string,"land":"DE"|"PL"|"CZ"|"AT","disziplinen":array aus ["trap","skeet","parcours","long","rifle","pistol"],"lat":number,"lon":number,"gastschuetzen":boolean,"leihwaffe":boolean,"einsteigerkurse":boolean,"indoor":boolean,"preis":string}\n'+
+   "Regeln: disziplinen = angebotene Disziplinen (trap/skeet/parcours = Wurfscheiben/Tontauben, long = Long Range 300m+, rifle = Büchse/Gewehr, pistol = Kurzwaffe, ipsc = IPSC/dynamisches/praktisches Schießen). "+
+   "lat/lon in Dezimalgrad: exakte Koordinaten; wenn nur Adresse/Ort bekannt, bestmöglich daraus schätzen. "+
+   "preis: knappe Preisangabe falls auffindbar, sonst leerer String. Booleans nur true wenn klar belegt, sonst false. Land aus Adresse ableiten.\n\n";
+  return text ? base+"Quelle = Text der Website "+url+":\n\n"+text.slice(0,6000)
+              : base+"Es liegt kein Seitentext vor. Nutze dein Wissen zur URL "+url+" und zum bereits eingegebenen Namen für eine bestmögliche Schätzung.";
+}
+function applyExtract(d){
+  if(!d||typeof d!=="object")return;
+  function setv(id,v){if(v!=null&&v!=="")document.getElementById(id).value=String(v);}
+  setv("fName",d.name);setv("fCity",d.ort);
+  var land=String(d.land||"").toUpperCase();if(["DE","PL","CZ","AT"].indexOf(land)>=0)document.getElementById("fCountry").value=land;
+  if(typeof d.lat==="number"&&typeof d.lon==="number"&&d.lat>=44&&d.lat<=56&&d.lon>=4&&d.lon<=26){
+    document.getElementById("fLat").value=(+d.lat).toFixed(4);document.getElementById("fLon").value=(+d.lon).toFixed(4);showPick(+d.lat,+d.lon);
+    var X=px(+d.lon),Y=py(+d.lat);if(vb.w>W*0.5){vb.w=W*0.4;vb.h=vb.w/R;}vb.x=X-vb.w/2;vb.y=Y-vb.h/2;clampVB();applyView();
+  }
+  lastPreis=d.preis?String(d.preis):"";
+  var cats=Array.isArray(d.disziplinen)?d.disziplinen:[];
+  form.querySelectorAll("#fCats input").forEach(function(c){c.checked=cats.indexOf(c.value)>=0;});
+  var svcMap={guest:"gastschuetzen",rental:"leihwaffe",courses:"einsteigerkurse",indoor:"indoor"};
+  form.querySelectorAll("#fSvc input").forEach(function(c){c.checked=!!d[svcMap[c.value]];});
+}
+document.getElementById("fFetch").onclick=async function(){
+  var url=document.getElementById("fWeb").value.trim(),msg=document.getElementById("fetchMsg"),btn=this;
+  msg.hidden=false;
+  if(!/^https?:\/\//i.test(url)){msg.textContent="Bitte zuerst eine gültige Webadresse (https://…) eintragen.";return;}
+  if(!window.claude||!window.claude.use){msg.textContent="Auto-Ausfüllen ist nur in der Claude-App verfügbar — bitte manuell eintragen.";return;}
+  btn.disabled=true;msg.textContent="Lese Website …";
+  var pageText="";
+  try{
+    var mcp=await window.claude.use("mcp");
+    if(mcp){
+      try{
+        await mcp.callTool("host:claude_browser","navigate",{url:url});
+        pageText=extractText(await mcp.callTool("host:claude_browser","get_page_text",{}));
+      }catch(err){pageText="";}
+    }
+  }catch(e){pageText="";}
+  var sample=await window.claude.use("sample");
+  if(!sample){msg.textContent="Auto-Ausfüllen hier nicht verfügbar — bitte manuell eintragen.";btn.disabled=false;return;}
+  msg.textContent=pageText?"Werte Website aus …":"Schätze Daten (kein Seitentext lesbar) …";
+  try{
+    var data=await sample.json(buildPrompt(url,pageText),{modelTier:"default"});
+    applyExtract(data);
+    msg.textContent=(pageText?"Aus Website vorausgefüllt":"KI-Schätzung aus der URL")+" — bitte alles prüfen, v.a. die Position (ggf. „Position auf Karte wählen“).";
+  }catch(e){
+    msg.textContent="Konnte keine Daten ermitteln ("+((e&&e.code)||"Fehler")+"). Bitte manuell eintragen.";
+  }
+  btn.disabled=false;
+};
+document.getElementById("fSave").onclick=function(){
+  var name=document.getElementById("fName").value.trim();
+  var cats=[].slice.call(form.querySelectorAll("#fCats input:checked")).map(function(c){return c.value;});
+  var lat=parseFloat(document.getElementById("fLat").value),lon=parseFloat(document.getElementById("fLon").value);
+  var msg=document.getElementById("fMsg");
+  if(!name){msg.textContent="Bitte einen Namen angeben.";return;}
+  if(!cats.length){msg.textContent="Bitte mindestens eine Disziplin wählen.";return;}
+  if(isNaN(lat)||isNaN(lon)||lat<44||lat>56||lon<4||lon>26){msg.textContent="Bitte gültige Position wählen (Karte klicken oder Koordinaten im Kartenbereich).";return;}
+  var svc={guest:0,rental:0,courses:0,indoor:0};
+  form.querySelectorAll("#fSvc input:checked").forEach(function(c){svc[c.value]=1;});
+  var fields={n:name,c:document.getElementById("fCountry").value,city:document.getElementById("fCity").value.trim()||"—",
+    lat:lat,lon:lon,cats:cats,price:lastPreis||"",web:document.getElementById("fWeb").value.trim(),
+    guest:svc.guest,rental:svc.rental,courses:svc.courses,indoor:svc.indoor};
+  var targetId;
+  if(editId){
+    targetId=editId;
+    var cust=null;CUSTOM.forEach(function(r){if(r.id===editId)cust=r;});
+    if(cust){Object.assign(cust,fields);save("sb_custom",CUSTOM);}
+    else{OVERRIDES[editId]=fields;save("sb_overrides",OVERRIDES);}
+  }else{
+    targetId="c"+Date.now().toString(36);
+    var obj=Object.assign({id:targetId,custom:true},fields);
+    CUSTOM.push(obj);save("sb_custom",CUSTOM);
+  }
+  var nt=document.getElementById("fNotes").value;if(nt.trim())NOTES[targetId]=nt;else delete NOTES[targetId];save("sb_notes",NOTES);
+  closeForm();rebuildAll();buildPins();selId=targetId;render();
+  var c=listEl.querySelector('.card[data-id="'+targetId+'"]');if(c)c.scrollIntoView({block:"nearest",behavior:"smooth"});
+};
+
+/* Originaldaten zurücksetzen (nur vorgegebene Bahnen; zweistufig als Rückfrage) */
+var resetBtn=document.getElementById("resetBtn"),resetArmed=false,resetTimer=null;
+function updateResetBtn(){
+  var has=Object.keys(OVERRIDES).length||Object.keys(DELETED).length;
+  resetBtn.hidden=!has;
+  if(!has||!resetArmed){resetArmed=false;resetBtn.textContent="↺ Originaldaten zurücksetzen";resetBtn.classList.remove("act");}
+}
+resetBtn.onclick=function(){
+  if(!resetArmed){resetArmed=true;resetBtn.textContent="↺ Wirklich zurücksetzen?";resetBtn.classList.add("act");resetTimer=setTimeout(function(){resetArmed=false;updateResetBtn();},4000);return;}
+  clearTimeout(resetTimer);resetArmed=false;OVERRIDES={};DELETED={};save("sb_overrides",OVERRIDES);save("sb_deleted",DELETED);rebuildAll();buildPins();render();
+};
+
+/* Import / Export aller Daten (oben rechts) */
+function fullExport(){
+  // Immer der GESAMTE Datensatz: alle Anlagen (gefundene + eigene), inkl. Notizen & Favoriten.
+  return {app:"schiessbahnen-mitteleuropa",version:2,exported:new Date().toISOString(),
+    ranges:ALL.map(function(r){return {name:r.n,orig:r.orig||"",land:r.c,ort:r.city,lat:r.lat,lon:r.lon,disziplinen:r.cats,preis:r.price||"",web:r.web||"",service:{gastschuetzen:!!r.guest,leihwaffe:!!r.rental,einsteigerkurse:!!r.courses,indoor:!!r.indoor},eigene:!!r.custom,favorit:!!FAV[r.id],notizen:getNotes(r.id)};}),
+    userData:{custom:CUSTOM,overrides:OVERRIDES,deleted:DELETED,favorites:FAV,notes:NOTES}};
+}
+function normKey(name,land){return String(name||"").toLowerCase().replace(/\s+/g," ").trim()+"|"+String(land||"").toUpperCase();}
+/* Import = MERGE: neue Bahnen aufnehmen, Dubletten überschreiben, NICHTS löschen. */
+function applyImport(obj){
+  var incoming=[];
+  if(Array.isArray(obj))incoming=obj;
+  else if(obj&&Array.isArray(obj.ranges))incoming=obj.ranges;
+  var ud=(obj&&obj.userData&&typeof obj.userData==="object")?obj.userData:null;
+  var hasRanges=incoming.length>0;
+  if(!hasRanges&&!ud)throw new Error("Format nicht erkannt");
+
+  rebuildAll();
+  var idx={};
+  ALL.forEach(function(r){idx[normKey(r.n,r.c)]={id:r.id,custom:!!r.custom};});
+  var added=0,updated=0;
+
+  function normalizeIncoming(x){
+    if(!x)return null;
+    var name=x.name||x.n;if(!name)return null;
+    var la=+x.lat,lo=+x.lon;if(isNaN(la)||isNaN(lo))return null;
+    var land=x.land||x.c;land=(["DE","PL","CZ","AT"].indexOf(land)>=0?land:"DE");
+    var cats=Array.isArray(x.disziplinen)?x.disziplinen:(Array.isArray(x.cats)?x.cats:[]);
+    var svc=x.service&&typeof x.service==="object"?x.service:null;
+    var rec={n:name,c:land,city:x.ort||x.city||"—",lat:la,lon:lo,cats:cats,price:x.preis||x.price||"",
+      orig:x.orig||"",web:x.web||"",
+      guest:(svc?svc.gastschuetzen:x.guest)?1:0,rental:(svc?svc.leihwaffe:x.rental)?1:0,
+      courses:(svc?svc.einsteigerkurse:x.courses)?1:0,indoor:(svc?svc.indoor:x.indoor)?1:0,
+      notes:x.notizen||x.notes||"",fav:!!(x.favorit||x.fav)};
+    return rec;
+  }
+  function mergeOne(rec){
+    if(!rec)return;
+    var k=normKey(rec.n,rec.c),hit=idx[k];
+    var patch={n:rec.n,c:rec.c,city:rec.city,lat:rec.lat,lon:rec.lon,cats:rec.cats,price:rec.price,web:rec.web,guest:rec.guest,rental:rec.rental,courses:rec.courses,indoor:rec.indoor};
+    if(rec.orig)patch.orig=rec.orig;
+    if(hit){ // Dublette -> überschreiben
+      if(hit.custom){for(var i=0;i<CUSTOM.length;i++)if(CUSTOM[i].id===hit.id)Object.assign(CUSTOM[i],patch);}
+      else OVERRIDES[hit.id]=Object.assign({},OVERRIDES[hit.id]||{},patch);
+      if(rec.notes)NOTES[hit.id]=rec.notes;
+      if(rec.fav)FAV[hit.id]=true;
+      updated++;
+    }else{ // neu -> aufnehmen
+      var id="c"+Date.now().toString(36)+Math.floor(Math.random()*1e5);
+      var o=Object.assign({id:id,custom:true},patch);
+      CUSTOM.push(o);idx[k]={id:id,custom:true};
+      if(rec.notes)NOTES[id]=rec.notes;
+      if(rec.fav)FAV[id]=true;
+      added++;
+    }
+  }
+
+  incoming.forEach(function(x){mergeOne(normalizeIncoming(x));});
+  if(ud&&Array.isArray(ud.custom))ud.custom.forEach(function(x){mergeOne(normalizeIncoming(x));});
+  if(ud){
+    // Overrides nur anwenden, wenn die Datei keine Range-Liste mitbringt (sonst sind die Werte dort schon enthalten)
+    if(!hasRanges&&ud.overrides&&typeof ud.overrides==="object")for(var ok in ud.overrides)OVERRIDES[ok]=Object.assign({},OVERRIDES[ok]||{},ud.overrides[ok]);
+    // Favoriten & Notizen additiv zusammenführen (nie löschen)
+    if(ud.favorites&&typeof ud.favorites==="object")for(var fk in ud.favorites){if(ud.favorites[fk])FAV[fk]=true;}
+    if(ud.notes&&typeof ud.notes==="object")for(var nk in ud.notes){if(ud.notes[nk])NOTES[nk]=ud.notes[nk];}
+    // ud.deleted wird bewusst IGNORIERT – Import löscht nie eine Bahn.
+  }
+
+  CUSTOM.forEach(function(r){r.custom=true;});
+  save("sb_custom",CUSTOM);save("sb_overrides",OVERRIDES);save("sb_deleted",DELETED);save("sb_fav",FAV);save("sb_notes",NOTES);
+  rebuildAll();buildPins();render();
+  return {added:added,updated:updated};
+}
+var iopanel=document.getElementById("iopanel");
+document.getElementById("ioBtn").onclick=function(){
+  var opening=!iopanel.classList.contains("on");
+  if(opening){form.classList.remove("on");document.getElementById("ioMsg").textContent="";document.getElementById("ioExpMsg").textContent="";}
+  iopanel.classList.toggle("on");
+};
+document.getElementById("ioClose").onclick=function(){iopanel.classList.remove("on");};
+document.getElementById("ioExportBtn").onclick=async function(){
+  var msg=document.getElementById("ioExpMsg");msg.style.color="var(--muted)";msg.textContent="Datei wird vorbereitet …";
+  var json=JSON.stringify(fullExport(),null,2),name="schiessbahnen-"+new Date().toISOString().slice(0,10)+".json";
+  try{
+    var dl=(window.claude&&window.claude.use)?await window.claude.use("downloads"):null;
+    if(dl){await dl.save({filename:name,data:json});}
+    else{
+      var blob=new Blob([json],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+      a.href=url;a.download=name;document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(url);a.remove();},1500);
+    }
+    msg.style.color="var(--accent)";msg.textContent="Als Datei exportiert ✓";
+  }catch(e){msg.style.color="var(--loc)";msg.textContent="Export nicht möglich oder abgebrochen.";}
+};
+var pendingImport=null;
+document.getElementById("ioPick").onclick=function(){document.getElementById("ioFile").click();};
+document.getElementById("ioFile").addEventListener("change",function(e){
+  var f=e.target.files&&e.target.files[0],msg=document.getElementById("ioMsg"),btn=document.getElementById("ioImportBtn");
+  if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    try{pendingImport=JSON.parse(String(rd.result));msg.style.color="var(--muted)";msg.textContent='Datei „'+f.name+'" geladen. „Importieren" klicken – ergänzt neue Bahnen & überschreibt Dubletten, löscht nichts.';btn.disabled=false;}
+    catch(err){pendingImport=null;btn.disabled=true;msg.style.color="var(--loc)";msg.textContent="Datei ist kein gültiges JSON.";}
+  };
+  rd.onerror=function(){pendingImport=null;btn.disabled=true;msg.style.color="var(--loc)";msg.textContent="Datei konnte nicht gelesen werden.";};
+  rd.readAsText(f);
+});
+document.getElementById("ioImportBtn").onclick=function(){
+  var msg=document.getElementById("ioMsg"),btn=this;
+  if(!pendingImport){msg.style.color="var(--loc)";msg.textContent="Bitte zuerst eine Datei auswählen.";return;}
+  try{var res=applyImport(pendingImport);pendingImport=null;btn.disabled=true;document.getElementById("ioFile").value="";msg.style.color="var(--accent)";msg.textContent="Import ✓ "+(res&&res.added||0)+" neu, "+(res&&res.updated||0)+" aktualisiert, 0 gelöscht.";}
+  catch(e){msg.style.color="var(--loc)";msg.textContent="Import fehlgeschlagen: "+e.message;}
+};
+
+/* Hinweis schließen */
+document.getElementById("discX").onclick=function(){document.getElementById("disc").hidden=true;};
+
+/* Theme */
+var root=document.documentElement,tSaved=load("sb_theme",null);
+root.setAttribute("data-theme",tSaved||"light");
+function themeDark(){var e=root.getAttribute("data-theme");if(e)return e==="dark";return matchMedia("(prefers-color-scheme:dark)").matches;}
+function syncTheme(){var d=themeDark();document.getElementById("themeIcon").textContent=d?"☀️":"🌙";document.getElementById("themeLbl").textContent=d?"Hell":"Dunkel";}
+document.getElementById("theme").onclick=function(){var d=!themeDark();root.setAttribute("data-theme",d?"dark":"light");save("sb_theme",d?"dark":"light");syncTheme();setTimeout(applyView,20);};
+syncTheme();
+
+/* Quellen */
+document.getElementById("srcs").innerHTML='Quellen u.a.: '+[
+ ['Target World Preisliste','https://target-world.de'],
+ ['Schießstand JIMI (Cheb/Eger)','https://schiessstand-jimi.de'],
+ ['Schießstand Prag (Prague Ranger)','https://www.pragueranger.cz/de/'],
+ ['Střelnice Leiko (Plzeň)','https://www.leiko.cz'],
+ ['Schießstand Mělník (Kudy z nudy)','https://www.kudyznudy.cz/aktivity/strelnice-melnik'],
+ ['Preisübersicht Strzelnice (kb.pl)','https://kb.pl/ceny/turystyka/cennik-strzelnic-zobacz-jakie-sa-ceny-strzelania-w-calej-polsce/'],
+ ['all4shooters – Long Range','https://www.all4shooters.com/de/shooting/buechsen/know-how-long-range-schiessen-mit-klein-und-grosskalibergewehren/']
+].map(function(s){return '<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>';}).join(' · ')+'. Koordinaten approximativ, Preise und Service-Angaben ohne Gewähr.';
+
+/* Init */
+new ResizeObserver(function(){applyView();}).observe(SVG);
+buildPins();fitAll();render();
+</script>
